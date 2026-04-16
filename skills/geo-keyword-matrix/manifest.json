@@ -1,0 +1,14 @@
+{
+  "name": "geo-keyword-matrix",
+  "version": "0.1.0",
+  "owner": "xiaowang",
+  "updated_at": "2026-04-16",
+  "status": "active",
+  "maturity_tier": "beta",
+  "lifecycle_stage": "active",
+  "context_budget_tier": "production",
+  "review_cadence": "monthly",
+  "skill_archetype": "research",
+  "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible"],
+  "factory_components": ["references"]
+}
