@@ -1,53 +1,112 @@
 # GEO Monitor Toolkit
 
-![PyCI](https://img.shields.io/badge/PyCI-ready-2563eb)
+![GEO Monitor Toolkit Logo](assets/logo.png)
+
+[![CI](https://github.com/veeicwgy/geo-monitor-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/veeicwgy/geo-monitor-toolkit/actions/workflows/ci.yml)
 ![Release](https://img.shields.io/github/v/release/veeicwgy/geo-monitor-toolkit)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 
-> **GEO monitoring operating system for dev tools**
+> **GEO Monitoring OS for Developer Tools**
 
-**GEO Monitor Toolkit** 是一套面向 **开发者工具、API、SDK 与开源项目** 的 GEO（Generative Engine Optimization）监控与修复中台工具包。它不仅提供 playbook，也提供 **可运行 runner、可复现评分 rubric、结构化 schema、CLI、指标概览图 / leaderboard、repair loop 样例和 sample run 快照**，帮助团队把 `关键词研究 → 监控 → 打分 → 周报 → 修复 → 回归验证` 串成一条能演示、能协作、能复盘的工作流。本仓库继续以 **MinerU** 作为主案例，并扩展到 SaaS、开源库和开发者工具多类 Query Pool。[1] [2] [3]
+**GEO Monitor Toolkit** 是一套面向 **开发者工具、API、SDK 与开源项目** 的 GEO 监控与修复中台。它不是泛化的内容生成器，而是把 **Query Pool、LLM answer monitoring、四指标打分、repair loop、T+7/T+14 回归验证** 组织成一条可复现、可协作、可交付的工作流。
 
-## Quick Demo
+## Why This Repository Exists
 
-如果你只想最快看见“跑完会得到什么”，推荐从下面两个命令开始。
+与偏“内容生产”或“提示词集合”的仓库不同，这个项目优先解决的是 **模型是否提到你、提到得是否正确、能力是否被准确理解、生态关系是否被误判，以及修复动作是否真的改善结果**。
 
-| 命令 | 类型 | 你会看到什么 |
+| Differentiator | What you get |
+|---|---|
+| Reproducible evaluation | `schema`、`rubric`、`run artifacts`、`summary`、`weekly report` |
+| Repair loop | 不止给建议，还能记录 `repair action → T+7/T+14 delta` |
+| Product focus | 聚焦 developer tools / API / SDK / open-source，而不是泛品牌营销 |
+| Team workflow | 支持产品、DevRel、内容、增长与工程协同复盘 |
+
+## Start in 30 Seconds
+
+如果你第一次访问这个仓库，只跑下面四行：
+
+```bash
+git clone https://github.com/veeicwgy/geo-monitor-toolkit.git
+cd geo-monitor-toolkit
+bash install.sh
+bash quickstart.sh
+```
+
+这条路径会同时完成 **依赖安装、数据校验、多模型手工演示、默认报告重放与图表生成**。
+
+| Step | Command | Result |
 |---|---|---|
-| `make sample-report` | **离线样本重放** | 基于仓库内现成 `annotations.jsonl` 生成 `summary.json`、`weekly_report.md` 与默认样例概览图 |
-| `make run-demo` | **手工模式演示** | 基于仓库内 `manual.sample.json` 生成 `raw_responses.jsonl` 与 `score_draft.jsonl` |
+| Install | `bash install.sh` | 创建本地环境并安装依赖 |
+| Quickstart | `bash quickstart.sh` | 生成多模型 demo run 与默认报告快照 |
+| Make alternative | `make quickstart` | 适合习惯 Make 的团队 |
 
-请注意，**`make sample-report` 是基于现成样本重放，不是全自动采集**。它的作用是让新访客快速理解评分、汇总与周报生成链路，而不是替代真实采集。
+## What You See on First Run
 
-## Three Runtime Modes
+首次体验结束后，你应该立刻看到以下产物。
 
-| 模式 | 输入 | 输出 | 适用场景 |
+| Output | Path |
+|---|---|
+| Raw responses | `data/runs/quickstart-run/raw_responses.jsonl` |
+| Score draft | `data/runs/quickstart-run/score_draft.jsonl` |
+| Run manifest | `data/runs/quickstart-run/run_manifest.json` |
+| Weekly report | `data/runs/sample-run/weekly_report.md` |
+| Leaderboard snapshot | `assets/leaderboard-sample.png` |
+| Repair trend snapshot | `assets/repair-trend-sample.png` |
+
+默认首屏图现在直接展示 **多模型 leaderboard 快照**，避免首次访客只能看到单模型示意图。
+
+![Model Leaderboard Snapshot](assets/leaderboard-sample.png)
+
+![Repair Trend Snapshot](assets/repair-trend-sample.png)
+
+## Who Should Use This
+
+| Team / role | Use this when |
+|---|---|
+| Developer tools PMM / DevRel | 你要知道模型如何介绍安装方式、核心能力与生态集成 |
+| Open-source maintainers | 你要修复错误答案、过时答案与竞品插入 |
+| API / SDK teams | 你要建立稳定 Query Pool 并做周期性回跑 |
+| Product + growth teams | 你需要一套能证明修复动作是否有效的 GEO 工作流 |
+
+如果你现在需要的是 **通用 SEO 文案生成器** 或 **一次性的营销内容写手**，这个仓库并不是最佳入口。
+
+## What You Can Prove in One Week
+
+| Time window | What you can show |
+|---|---|
+| Day 1 | 建立 Query Pool 与模型范围 |
+| Day 2-3 | 拿到 baseline 回答、四指标评分与周报 |
+| Day 4-5 | 形成内容铺设与问题修复 backlog |
+| Day 7 / Day 14 | 用相同 query 回跑并展示指标变化 |
+
+## Runtime Modes
+
+| Mode | Inputs | Outputs | Best for |
 |---|---|---|---|
-| 离线样本重放 | `data/runs/sample-run/annotations.jsonl` | `summary.json`、`weekly_report.md`、概览图 / leaderboard | 先理解报告生成链路 |
-| 手工粘贴回答 | Query Pool + `data/manual.sample.json` | `raw_responses.jsonl`、`score_draft.jsonl` | 没有 API key 时演示从 query 到草稿的闭环 |
-| API 采集（单 provider） | Query Pool + `data/models.sample.json` + key | `raw_responses.jsonl`、后续 summary/report | OpenAI 模型，使用 `run_monitor.py` |
-| **API 采集（多 provider）** | Query Pool + `data/models.sample.json` + key | `raw_responses.jsonl`、后续 summary/report | **Claude / Gemini / DeepSeek / Qwen / MiniMax / GLM 等，使用 `run_chat_completions.py`** |
+| Quickstart replay | `data/models.multi.sample.json` + `data/manual.multi.sample.json` | `quickstart-run` + 默认报告快照 | 首次体验、零 API 成本演示 |
+| Manual paste mode | Query Pool + manual response JSON | `raw_responses.jsonl` + `score_draft.jsonl` | 把外部聊天结果导入仓库 |
+| API collection mode | Query Pool + model config + API key | `raw_responses.jsonl` + `score_draft.jsonl` + 后续汇总 | 做真实批量 GEO 监控 |
+| Multi-provider API collection | Query Pool + OpenAI-compatible gateway + enabled models | `raw_responses.jsonl` + 后续 summary/report | 跨 Claude / Gemini / DeepSeek / Qwen / MiniMax / GLM 等模型采集 |
 
 ## Multi-Provider API Collection
 
-`run_chat_completions.py` 使用通用的 Chat Completions 接口，兼容所有 OpenAI-compatible 网关，可以同时采集多个 AI 厂商的回答：
+`run_chat_completions.py` 使用通用的 Chat Completions 接口，兼容 OpenAI-compatible 网关，可以同时采集多个 AI 厂商的回答。
 
 ```bash
 export OPENAI_API_KEY=<your-key>
-export OPENAI_BASE_URL=<your-gateway-url>  # 如 http://your-gateway/v1
+export OPENAI_BASE_URL=<your-gateway-url>
 
 python scripts/run_chat_completions.py \
-    --query-pool  data/query-pools/mineru-example.json \
+    --query-pool data/query-pools/mineru-example.json \
     --model-config data/models.sample.json \
     --out-dir data/runs/multi-provider-run
 
-# 标注打分后生成报告
 python -m geo_monitor report \
     --input data/runs/multi-provider-run/raw_responses.jsonl \
     --output-dir data/runs/multi-provider-run
 ```
 
-在 `data/models.sample.json` 中将需要的模型 `enabled` 设为 `true`，支持的模型示例：
+在 `data/models.sample.json` 中将需要的模型 `enabled` 设为 `true`，即可按同一流程采集多 provider 回答。
 
 | 模型 | api_model 字段 | 说明 |
 |---|---|---|
@@ -61,113 +120,65 @@ python -m geo_monitor report \
 
 ## Minimal Files You Can Start From
 
-| 文件 | 作用 |
+| File | Purpose |
 |---|---|
-| [`data/models.sample.json`](data/models.sample.json) | 最小模型配置样例 |
+| [`data/query-pools/mineru-example.json`](data/query-pools/mineru-example.json) | 默认开发者工具 Query Pool |
+| [`data/models.sample.json`](data/models.sample.json) | 最小单模型配置 |
+| [`data/models.multi.sample.json`](data/models.multi.sample.json) | 默认多模型演示配置 |
 | [`data/manual.sample.json`](data/manual.sample.json) | 最小手工回答样例 |
-| [`docs/metric-definition.md`](docs/metric-definition.md) | 指标口径说明页，解释 0-2 打分与 KPI 映射 |
-| [`data/query-pools/mineru-example.json`](data/query-pools/mineru-example.json) | 默认 run-demo 使用的 Query Pool |
+| [`data/manual.multi.sample.json`](data/manual.multi.sample.json) | 多模型手工回答样例 |
+| [`docs/metric-definition.md`](docs/metric-definition.md) | 四指标口径说明 |
+
+## Trust Signals
+
+仓库的核心信任信号应该放在首屏前 1/3，因此这里直接公开：
+
+| Signal | Location |
+|---|---|
+| Real CI workflow | [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| Leaderboard snapshot | [`assets/leaderboard-sample.png`](assets/leaderboard-sample.png) |
+| Repair delta snapshot | [`assets/repair-trend-sample.png`](assets/repair-trend-sample.png) |
+| Benchmark method | [`benchmark/README.md`](benchmark/README.md) |
+| Case example | [`examples/mineru-case-study.md`](examples/mineru-case-study.md) |
+
+## Read the Full Docs
+
+README 保持为短版 landing。更详细的说明请直接进入长版文档。
+
+| Topic | Path |
+|---|---|
+| Full getting started guide | [`docs/getting-started.md`](docs/getting-started.md) |
+| Metric definition | [`docs/metric-definition.md`](docs/metric-definition.md) |
+| Benchmark method | [`benchmark/README.md`](benchmark/README.md) |
+| Reader guide | [`notebooks/README.md`](notebooks/README.md) |
+| Repair template | [`templates/repair-validation.md`](templates/repair-validation.md) |
+| Weekly report template | [`templates/weekly-report.md`](templates/weekly-report.md) |
+| Release notes | [`release-notes/v0.2.0.md`](release-notes/v0.2.0.md) |
+
+## Repository Map
+
+| Directory | What it contains |
+|---|---|
+| `data/` | Query pools, sample configs, run outputs, repair validations |
+| `schemas/` | Structured validation contracts |
+| `rubrics/` | Scoring rules and annotation protocol |
+| `scripts/` | Run, score, report, leaderboard, validation scripts |
+| `playbooks/` | GEO strategy, monitoring, datasource mapping, repair SOP |
+| `examples/` | Business or product case examples |
 
 ## CLI
 
-如果你不想直接调用脚本，可以使用统一 CLI：
+如果你已经完成首次体验，可以直接使用统一 CLI：
 
 ```bash
-python -m geo_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.sample.json
+python -m geo_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
 python -m geo_monitor report --input data/runs/sample-run/annotations.jsonl --output-dir data/runs/sample-run
 python -m geo_monitor leaderboard
 python -m geo_monitor validate
 ```
 
-## Expected Output Snapshot
+## Positioning
 
-默认样例目前只启用了 **1 个模型**，所以这里展示的是 **单模型四指标概览图**，而不是真正的多模型 leaderboard。
-
-![Single-Model Snapshot](assets/leaderboard-sample.png)
-
-当你启用 2 个或以上模型后，同一脚本会自动切换成真正的 **model leaderboard** 视图。
-
-下面这张图展示了修复动作落地后，从 baseline 到 `T+7 / T+14` 的指标改善趋势：
-
-![Repair Trend Snapshot](assets/repair-trend-sample.png)
-
-## Sample Run Snapshot
-
-`data/runs/sample-run/` 现在包含一份更完整的快照，用来回答“跑完后到底会得到什么”。
-
-| 文件 | 是否提供 |
-|---|---|
-| `raw_responses.jsonl` | 是 |
-| `score_draft.jsonl` | 是 |
-| `annotations.jsonl` | 是 |
-| `summary.json` | 是 |
-| `metrics.csv` | 是 |
-| `weekly_report.md` | 是 |
-| `run_manifest.json` | 是 |
-
-## Publishable Skill
-
-仓库已经整理出一个可发布的主 Skill 入口，用于把关键词策略、监控、内容质检、负向修复和回归验证串成同一套 GEO 工作流。默认主 Skill 文件位于：`SKILL.md`，本地可打包版本位于：`/home/ubuntu/skills/geo-monitor-toolkit/SKILL.md`。
-
-这个主 Skill 的 GEO 策略写法明确覆盖以下五层：
-
-| 模块 | 技能中的作用 |
-|---|---|
-| Keyword strategy | 从产品真相生成场景矩阵、三级关键词与 Query Pool |
-| Monitoring | 用四指标监控模型认知表现 |
-| Content placement | 按模型数据来源拆分铺设渠道 |
-| Negative repair | 区分错误、负面、过时、竞品植入四类修复 |
-| Regression validation | 用 T+7 / T+14 回看动作后的指标变化 |
-
-## Multi-Industry Query Pools
-
-| 类型 | 示例文件 | 场景 |
-|---|---|---|
-| Developer tool | `data/query-pools/mineru-example.json` | PDF 解析、RAG 预处理、复杂文档抽取 |
-| SaaS | `data/query-pools/posthog-saas-example.json` | 产品分析与增长工作流 |
-| Open-source library | `data/query-pools/fastapi-open-source-library-example.json` | Python API 框架与生态判断 |
-| Developer tool / LLMOps | `data/query-pools/langfuse-developer-tool-example.json` | LLM 可观测性与评测 |
-
-## Repair Loop Examples
-
-本仓库已经补充 3 个“修复动作 → T+7/T+14 指标变化”案例，用于展示 GEO 修复不是只停留在建议层，而是可以沉淀为结构化实验记录。
-
-| 文件 | 类型 |
-|---|---|
-| `data/repair-validations/mineru-error-fix-case.json` | 信息错误修复 |
-| `data/repair-validations/mineru-outdated-fix-case.json` | 过时信息修复 |
-| `data/repair-validations/mineru-competitor-fix-case.json` | 竞品植入修复 |
-
-## Benchmark and Reader Guide
-
-如果你要向团队解释“不同项目如何横向比较”或“非工程同学如何读周报”，可以直接从以下入口开始。
-
-| 文件 | 作用 |
-|---|---|
-| [`benchmark/README.md`](benchmark/README.md) | 同类 Query Pool 的横向 benchmark 范式 |
-| [`notebooks/README.md`](notebooks/README.md) | 非工程同学的阅读路径说明 |
-
-## Collaboration
-
-如果你准备一起扩展这个仓库，可以直接使用以下入口：
-
-| 文件 | 作用 |
-|---|---|
-| `.github/ISSUE_TEMPLATE/bug_report.md` | 提交运行或数据问题 |
-| `.github/ISSUE_TEMPLATE/feature_request.md` | 提出新功能建议 |
-| `.github/ISSUE_TEMPLATE/new_query_pool_request.md` | 请求新行业或新语言样例 |
-| `CONTRIBUTING.md` | 按模板新增一个行业样例 |
-
-## Release Notes
-
-当前推荐版本是 **v0.2.0**。版本说明见 `CHANGELOG.md` 与 `release-notes/v0.2.0.md`。
-
-## CI Badge Note
-
-当前顶部使用的是静态 **PyCI** 徽章。等 `.github/workflows/ci.yml` 成功进入远端仓库后，可以切换为真实 GitHub Actions 状态徽章，以反映 `make validate`、样例 run 检查和 schema 校验结果。
-
-## References
-
-[1]: https://github.com/dageno-agents/geo-content-writer "dageno-agents/geo-content-writer"
-[2]: https://github.com/aaron-he-zhu/seo-geo-claude-skills "aaron-he-zhu/seo-geo-claude-skills"
-[3]: https://github.com/yaojingang/yao-geo-skills/tree/main/skills/geoflow-cli-ops "yaojingang/yao-geo-skills geoflow-cli-ops"
+> **GEO Monitor Toolkit = GEO Monitoring OS for Developer Tools**
+>
+> 它关注的是 **监控、打分、修复与回归验证**，不是泛化营销内容生成器。

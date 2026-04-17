@@ -1,10 +1,6 @@
-# Single-Model GEO Metrics Snapshot
+# Model Leaderboard
 
-Default sample uses one enabled model: **gpt-4.1-mini**.
-
-| Metric | Latest Score | Δ vs Previous |
-|---|---:|---:|
-| Mention | 80.00 | -5.00 |
-| Positive | 70.00 | -5.00 |
-| Capability | 100.00 | +0.00 |
-| Ecosystem | 50.00 | -25.00 |
+| Model | Runs | Latest Mention | Latest Positive | Latest Capability | Latest Ecosystem | Δ Mention |
+|---|---:|---:|---:|---:|---:|---:|
+| gpt-4.1-mini | 4 | 80.00 | 70.00 | 100.00 | 50.00 | -5.00 |
+| gpt-4.1-nano | 1 | 72.00 | 60.00 | 92.00 | 48.00 | NA |

@@ -1,4 +1,7 @@
-.PHONY: validate sample-report run-demo leaderboard quick-demo
+.PHONY: install validate sample-report run-demo leaderboard quick-demo quickstart
+
+install:
+	bash ./install.sh
 
 validate:
 	python3 scripts/validate_data.py --repo-root .
@@ -9,10 +12,13 @@ sample-report:
 	python3 scripts/build_leaderboard.py --runs-root data/runs --output-dir data/leaderboards --image-output assets/leaderboard-sample.png
 
 run-demo:
-	python3 -m geo_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.sample.json
+	python3 -m geo_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
 
 leaderboard:
 	python3 scripts/build_leaderboard.py --runs-root data/runs --output-dir data/leaderboards --image-output assets/leaderboard-sample.png
 	python3 scripts/build_repair_trend.py
 
 quick-demo: run-demo sample-report validate
+
+quickstart:
+	bash ./quickstart.sh

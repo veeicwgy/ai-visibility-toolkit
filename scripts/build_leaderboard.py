@@ -88,29 +88,35 @@ def write_md(rows, path):
 
 
 def write_png(rows, path):
-    plt.figure(figsize=(8.4, 4.8))
+    fig, ax = plt.subplots(figsize=(9.2, 5.6))
     if len(rows) == 1:
         row = rows[0]
         values = [row[f"latest_{metric}"] for metric in METRICS]
         labels = [METRIC_LABELS[m] for m in METRICS]
-        bars = plt.bar(labels, values, color=METRIC_COLORS, width=0.62)
-        plt.ylabel("Score")
-        plt.title(f"Single-Model GEO Metrics Snapshot ({row['model_id']})")
-        plt.ylim(0, 100)
+        bars = ax.bar(labels, values, color=METRIC_COLORS, width=0.62)
+        ax.set_ylabel("Score")
+        ax.set_title("Single-Model GEO Metrics Snapshot", fontsize=16, pad=20)
+        ax.text(0.5, 1.01, f"Model: {row['model_id']}", transform=ax.transAxes, ha="center", va="bottom", fontsize=10, color="#475569")
+        ax.set_ylim(0, 108)
         for bar, value in zip(bars, values):
-            plt.text(bar.get_x() + bar.get_width() / 2, value + 1, f"{value:.0f}", ha="center", fontsize=9)
+            label_y = value - 3 if value >= 98 else value + 1.2
+            label_va = "top" if value >= 98 else "bottom"
+            ax.text(bar.get_x() + bar.get_width() / 2, label_y, f"{value:.0f}", ha="center", va=label_va, fontsize=10, fontweight="semibold", color="#111827")
     else:
         labels = [row["model_id"] for row in rows]
         values = [row["latest_mention_rate"] for row in rows]
-        bars = plt.bar(labels, values, color="#2563eb")
-        plt.ylabel("Mention Rate")
-        plt.title("Model Leaderboard Snapshot")
-        plt.ylim(0, 100)
+        bars = ax.bar(labels, values, color="#2563eb")
+        ax.set_ylabel("Mention Rate")
+        ax.set_title("Model Leaderboard Snapshot", fontsize=16, pad=18)
+        ax.set_ylim(0, 108)
         for bar, value in zip(bars, values):
-            plt.text(bar.get_x() + bar.get_width() / 2, value + 1, f"{value:.0f}", ha="center", fontsize=9)
-    plt.grid(axis="y", linestyle="--", alpha=0.25)
-    plt.tight_layout()
-    plt.savefig(path, dpi=160)
+            label_y = value - 3 if value >= 98 else value + 1.2
+            label_va = "top" if value >= 98 else "bottom"
+            ax.text(bar.get_x() + bar.get_width() / 2, label_y, f"{value:.0f}", ha="center", va=label_va, fontsize=10, fontweight="semibold")
+    ax.grid(axis="y", linestyle="--", alpha=0.25)
+    fig.tight_layout(rect=[0, 0, 1, 0.94])
+    fig.savefig(path, dpi=160)
+    plt.close(fig)
 
 
 def main():
