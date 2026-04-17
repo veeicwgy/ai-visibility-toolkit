@@ -1,51 +1,68 @@
 ---
 name: geo-monitor-toolkit
 description: >
-  Use when the user wants to build or operate a GEO monitoring and content optimization loop for a developer tool, API product, SDK, or open-source project. Covers keyword matrix design, Query Pool planning, multi-model monitoring, model-specific content placement, pre-publish GEO quality checks, and negative content repair. Especially suitable for technical products that need stronger citation and recommendation performance in LLMs.
-compatibility: "skills.sh, OpenClaw, ClawHub, Claude-style skill ecosystems"
+  Use when the user wants a GEO monitoring operating system for a developer tool, API, SDK, or open-source project. Covers keyword matrix and Query Pool design, four-metric monitoring, model-specific content placement, GEO content checks, negative-answer repair, and T+7 or T+14 regression validation.
+license: MIT
+allowed-tools: Read, Write, Edit, Bash
 metadata:
-  author: Manus AI
-  version: "0.1.0"
-  homepage: https://github.com/veeicwgy/geo-monitor-toolkit
-  tags:
-    - geo
-    - ai-search
-    - llm-monitoring
-    - open-source
-    - developer-tools
-    - mineru
-    - query-pool
-  requires:
-    bins: []
+  openclaw:
+    emoji: "📈"
+    author: "Manus AI"
+    homepage: "https://github.com/veeicwgy/geo-monitor-toolkit"
 ---
 
-# GEO Monitor Toolkit
+# geo-monitor-toolkit
 
-Use this skill as the **workflow router** for GEO programs built around developer tools and open-source products.
+Use this skill as the **main GEO workflow router** for developer tools and open-source products.
 
 ## Trigger
 
-Use this skill when the next task is any of the following:
+Use this skill when the task is any of the following:
 
-1. design a GEO monitoring system for a technical product;
-2. generate a keyword scenario matrix and Query Pool from a product description;
-3. diagnose why a product is not being cited or recommended by LLMs;
-4. decide where to publish content for different models;
-5. classify and repair negative or incorrect model responses.
+1. generate a GEO keyword matrix and Query Pool from product truth;
+2. monitor how multiple LLMs mention, recommend, or misunderstand a product;
+3. plan model-specific content placement based on datasource patterns;
+4. check whether a draft page, FAQ, changelog, or case study is GEO-ready;
+5. repair wrong, negative, outdated, or competitor-only answers;
+6. verify whether a repair action improved metrics at T+7 or T+14.
 
-## Quick Start
+## GEO Strategy
 
-If the user starts with a product description, go to `skills/geo-keyword-matrix/` first.
+Always keep the workflow in this order:
 
-If the user already has a Query Pool and model outputs, go to `skills/geo-monitor/` first.
+| Stage | Goal |
+|---|---|
+| Keyword strategy | turn product truth into scenario matrix, three-layer keywords, and Query Pool seeds |
+| Monitoring | score mention, positive mention, capability accuracy, and ecosystem accuracy |
+| Placement | map each target model to likely datasource channels and publication surfaces |
+| Repair | classify bad answers into information error, negative evaluation, outdated information, or competitor insertion |
+| Regression | compare follow-up runs and check whether metrics improved after action |
 
-If the user has a draft article and wants pre-publish validation, go to `skills/geo-content-check/` first.
+## Input Contract
 
-If the user has a bad answer, wrong answer, outdated answer, or competitor-only answer, go to `skills/geo-fix-negative/` first.
+Prepare as many of the following as possible before execution.
 
-## Operating Contract
+| Input | Examples |
+|---|---|
+| Product truth | README, docs, changelog, integrations, positioning |
+| GEO evidence | raw answers, screenshots, copied responses, cited links |
+| Monitoring scope | models, languages, regions, dates, repeated query set |
+| Publishing targets | docs, blog, GitHub, Q&A, partner channels |
 
-Read the repository in this order:
+## Workflow Router
+
+Choose the next sub-skill according to the user's immediate need.
+
+| Situation | Next Skill |
+|---|---|
+| Need keyword matrix and Query Pool | `geo-keyword-matrix` |
+| Need weekly monitoring, evidence logging, and report output | `geo-monitor` |
+| Need pre-publish GEO QA for content | `geo-content-check` |
+| Need to repair bad answers and define regression checks | `geo-fix-negative` |
+
+## Required Reading Order
+
+For a full GEO program, read these repository documents in sequence:
 
 1. `playbooks/geo-workflow-architecture.md`
 2. `playbooks/keyword-strategy.md`
@@ -53,48 +70,24 @@ Read the repository in this order:
 4. `playbooks/model-datasources.md`
 5. `playbooks/content-platform-map.md`
 6. `playbooks/negative-fix-sop.md`
-7. `playbooks/seo-geo-claude-skills-integration.md`
 
-Then choose one of the four packaged skills.
+## Output Contract
 
-## Inputs
-
-Typical inputs include:
-
-| Input Type | Examples |
-|---|---|
-| Product context | product description, positioning, target users, pricing, open-source status |
-| Evidence | model responses, screenshots, answer logs, cited links |
-| Entity truth | official README, docs, package pages, version notes |
-| Publishing targets | target models, languages, regions, channels |
-
-## Outputs
-
-Typical outputs include:
+Always preserve the following outputs.
 
 | Output | Description |
 |---|---|
-| Keyword matrix | scenario-led keyword foundation for GEO monitoring and content planning |
-| Query Pool | reusable monitoring prompts for brand, capability, ecosystem, and competitor scenes |
-| Monitoring report | mention rate, sentiment, capability accuracy, ecosystem accuracy, and anomaly list |
-| Placement plan | channel-by-model distribution map and publication priorities |
-| Repair plan | negative-type classification, source correction actions, authority coverage plan, regression checks |
+| Query foundation | scenario matrix, keyword layers, Query Pool |
+| Monitoring outputs | raw evidence, score draft, summary, report, leaderboard or overview |
+| GEO action plan | content placement priorities and repair backlog |
+| Regression record | T+7 and T+14 comparisons after key fixes |
 
 ## Handoff Rules
 
-Always preserve the following handoff summary after execution:
+At the end of each run, preserve:
 
-1. what product is being optimized;
-2. which models are in scope;
-3. which queries are used repeatedly;
-4. what the top three weaknesses are;
-5. which content or repair actions are already completed.
-
-## Next Best Skill
-
-| Situation | Next Skill |
-|---|---|
-| Need a Query Pool | `geo-keyword-matrix` |
-| Need weekly metrics | `geo-monitor` |
-| Need pre-publish QA | `geo-content-check` |
-| Need to fix bad answers | `geo-fix-negative` |
+1. which product was optimized;
+2. which models and languages were in scope;
+3. which queries are reused in weekly tracking;
+4. what the top three GEO weaknesses are;
+5. what actions are already completed and what still needs validation.

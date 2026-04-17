@@ -8,6 +8,13 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 METRICS = ["mention_rate", "positive_mention_rate", "capability_accuracy", "ecosystem_accuracy"]
+METRIC_LABELS = {
+    "mention_rate": "Mention",
+    "positive_mention_rate": "Positive",
+    "capability_accuracy": "Capability",
+    "ecosystem_accuracy": "Ecosystem",
+}
+METRIC_COLORS = ["#2563eb", "#16a34a", "#f59e0b", "#7c3aed"]
 
 
 def load_summary(path):
@@ -51,30 +58,57 @@ def aggregate(rows):
 
 
 def write_md(rows, path):
-    lines = [
-        "# Model Leaderboard",
-        "",
-        "| Model | Runs | Latest Mention | Latest Positive | Latest Capability | Latest Ecosystem | Δ Mention |",
-        "|---|---:|---:|---:|---:|---:|---:|",
-    ]
-    for row in rows:
-        delta = "NA" if row["delta_mention_rate"] is None else f"{row['delta_mention_rate']:+.2f}"
-        lines.append(
-            f"| {row['model_id']} | {row['run_count']} | {row['latest_mention_rate']:.2f} | {row['latest_positive_mention_rate']:.2f} | {row['latest_capability_accuracy']:.2f} | {row['latest_ecosystem_accuracy']:.2f} | {delta} |"
-        )
+    if len(rows) == 1:
+        row = rows[0]
+        lines = [
+            "# Single-Model GEO Metrics Snapshot",
+            "",
+            f"Default sample uses one enabled model: **{row['model_id']}**.",
+            "",
+            "| Metric | Latest Score | Δ vs Previous |",
+            "|---|---:|---:|",
+        ]
+        for metric in METRICS:
+            delta = row[f"delta_{metric}"]
+            delta_text = "NA" if delta is None else f"{delta:+.2f}"
+            lines.append(f"| {METRIC_LABELS[metric]} | {row[f'latest_{metric}']:.2f} | {delta_text} |")
+    else:
+        lines = [
+            "# Model Leaderboard",
+            "",
+            "| Model | Runs | Latest Mention | Latest Positive | Latest Capability | Latest Ecosystem | Δ Mention |",
+            "|---|---:|---:|---:|---:|---:|---:|",
+        ]
+        for row in rows:
+            delta = "NA" if row["delta_mention_rate"] is None else f"{row['delta_mention_rate']:+.2f}"
+            lines.append(
+                f"| {row['model_id']} | {row['run_count']} | {row['latest_mention_rate']:.2f} | {row['latest_positive_mention_rate']:.2f} | {row['latest_capability_accuracy']:.2f} | {row['latest_ecosystem_accuracy']:.2f} | {delta} |"
+            )
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def write_png(rows, path):
-    labels = [row["model_id"] for row in rows]
-    values = [row["latest_mention_rate"] for row in rows]
-    plt.figure(figsize=(8, 4.5))
-    plt.bar(labels, values, color="#2563eb")
-    plt.ylabel("Mention Rate")
-    plt.title("Model Leaderboard Snapshot")
-    plt.ylim(0, 100)
-    for i, value in enumerate(values):
-        plt.text(i, value + 1, f"{value:.0f}", ha="center", fontsize=9)
+    plt.figure(figsize=(8.4, 4.8))
+    if len(rows) == 1:
+        row = rows[0]
+        values = [row[f"latest_{metric}"] for metric in METRICS]
+        labels = [METRIC_LABELS[m] for m in METRICS]
+        bars = plt.bar(labels, values, color=METRIC_COLORS, width=0.62)
+        plt.ylabel("Score")
+        plt.title(f"Single-Model GEO Metrics Snapshot ({row['model_id']})")
+        plt.ylim(0, 100)
+        for bar, value in zip(bars, values):
+            plt.text(bar.get_x() + bar.get_width() / 2, value + 1, f"{value:.0f}", ha="center", fontsize=9)
+    else:
+        labels = [row["model_id"] for row in rows]
+        values = [row["latest_mention_rate"] for row in rows]
+        bars = plt.bar(labels, values, color="#2563eb")
+        plt.ylabel("Mention Rate")
+        plt.title("Model Leaderboard Snapshot")
+        plt.ylim(0, 100)
+        for bar, value in zip(bars, values):
+            plt.text(bar.get_x() + bar.get_width() / 2, value + 1, f"{value:.0f}", ha="center", fontsize=9)
+    plt.grid(axis="y", linestyle="--", alpha=0.25)
     plt.tight_layout()
     plt.savefig(path, dpi=160)
 

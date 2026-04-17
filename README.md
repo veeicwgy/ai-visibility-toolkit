@@ -6,7 +6,7 @@
 
 > **GEO monitoring operating system for dev tools**
 
-**GEO Monitor Toolkit** 是一套面向 **开发者工具、API、SDK 与开源项目** 的 GEO（Generative Engine Optimization）监控与修复中台工具包。它不仅提供 playbook，也提供 **可运行 runner、可复现评分 rubric、结构化 schema、CLI、leaderboard、repair loop 样例和 sample run 快照**，帮助团队把 `关键词研究 → 监控 → 打分 → 周报 → 修复 → 回归验证` 串成一条能演示、能协作、能复盘的工作流。本仓库继续以 **MinerU** 作为主案例，并扩展到 SaaS、开源库和开发者工具多类 Query Pool。[1] [2] [3]
+**GEO Monitor Toolkit** 是一套面向 **开发者工具、API、SDK 与开源项目** 的 GEO（Generative Engine Optimization）监控与修复中台工具包。它不仅提供 playbook，也提供 **可运行 runner、可复现评分 rubric、结构化 schema、CLI、指标概览图 / leaderboard、repair loop 样例和 sample run 快照**，帮助团队把 `关键词研究 → 监控 → 打分 → 周报 → 修复 → 回归验证` 串成一条能演示、能协作、能复盘的工作流。本仓库继续以 **MinerU** 作为主案例，并扩展到 SaaS、开源库和开发者工具多类 Query Pool。[1] [2] [3]
 
 ## Quick Demo
 
@@ -14,7 +14,7 @@
 
 | 命令 | 类型 | 你会看到什么 |
 |---|---|---|
-| `make sample-report` | **离线样本重放** | 基于仓库内现成 `annotations.jsonl` 生成 `summary.json`、`weekly_report.md` 与 leaderboard |
+| `make sample-report` | **离线样本重放** | 基于仓库内现成 `annotations.jsonl` 生成 `summary.json`、`weekly_report.md` 与默认样例概览图 |
 | `make run-demo` | **手工模式演示** | 基于仓库内 `manual.sample.json` 生成 `raw_responses.jsonl` 与 `score_draft.jsonl` |
 
 请注意，**`make sample-report` 是基于现成样本重放，不是全自动采集**。它的作用是让新访客快速理解评分、汇总与周报生成链路，而不是替代真实采集。
@@ -23,7 +23,7 @@
 
 | 模式 | 输入 | 输出 | 适用场景 |
 |---|---|---|---|
-| 离线样本重放 | `data/runs/sample-run/annotations.jsonl` | `summary.json`、`weekly_report.md`、leaderboard | 先理解报告生成链路 |
+| 离线样本重放 | `data/runs/sample-run/annotations.jsonl` | `summary.json`、`weekly_report.md`、概览图 / leaderboard | 先理解报告生成链路 |
 | 手工粘贴回答 | Query Pool + `data/manual.sample.json` | `raw_responses.jsonl`、`score_draft.jsonl` | 没有 API key 时演示从 query 到草稿的闭环 |
 | API 采集 | Query Pool + `data/models.sample.json` + key | `raw_responses.jsonl`、`score_draft.jsonl`、后续 summary/report | 真正做批量 GEO 监控 |
 
@@ -49,9 +49,11 @@ python -m geo_monitor validate
 
 ## Expected Output Snapshot
 
-下面这张图展示了跑完 sample 后会得到的轻量 leaderboard 快照：
+默认样例目前只启用了 **1 个模型**，所以这里展示的是 **单模型四指标概览图**，而不是真正的多模型 leaderboard。
 
-![Leaderboard Snapshot](assets/leaderboard-sample.png)
+![Single-Model Snapshot](assets/leaderboard-sample.png)
+
+当你启用 2 个或以上模型后，同一脚本会自动切换成真正的 **model leaderboard** 视图。
 
 下面这张图展示了修复动作落地后，从 baseline 到 `T+7 / T+14` 的指标改善趋势：
 
@@ -70,6 +72,20 @@ python -m geo_monitor validate
 | `metrics.csv` | 是 |
 | `weekly_report.md` | 是 |
 | `run_manifest.json` | 是 |
+
+## Publishable Skill
+
+仓库已经整理出一个可发布的主 Skill 入口，用于把关键词策略、监控、内容质检、负向修复和回归验证串成同一套 GEO 工作流。默认主 Skill 文件位于：`SKILL.md`，本地可打包版本位于：`/home/ubuntu/skills/geo-monitor-toolkit/SKILL.md`。
+
+这个主 Skill 的 GEO 策略写法明确覆盖以下五层：
+
+| 模块 | 技能中的作用 |
+|---|---|
+| Keyword strategy | 从产品真相生成场景矩阵、三级关键词与 Query Pool |
+| Monitoring | 用四指标监控模型认知表现 |
+| Content placement | 按模型数据来源拆分铺设渠道 |
+| Negative repair | 区分错误、负面、过时、竞品植入四类修复 |
+| Regression validation | 用 T+7 / T+14 回看动作后的指标变化 |
 
 ## Multi-Industry Query Pools
 
