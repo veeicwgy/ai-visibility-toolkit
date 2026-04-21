@@ -6,6 +6,8 @@
 - Refined the root skill and repository messaging around the GEO Monitor Toolkit brand.
 - Updated the skill title to a more direct user-facing promise for ClawHub discovery.
 - Added copyable starter prompts, a 30-second result section, and cross-links between the repo and the companion ClawHub skill.
+- Added new playbooks for activation metrics, agent readiness, source-surface prioritization, and scientific product GEO.
+- Added a new Sciverse API query pool example and optional query metadata for funnel stage, target surface, and desired action.
 
 ## v0.2.0
 

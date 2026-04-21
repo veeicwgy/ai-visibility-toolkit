@@ -27,3 +27,13 @@
 
 业务 KPI 往往是最终结果，如注册、激活、Star、试用转化；而 GEO 指标更像是上游认知层信号。它们适合作为 **内容铺设、负向修复、问答覆盖** 的先导指标，帮助团队在流量与转化发生前先看到模型侧认知是否改善。
 
+## 什么时候应该增加 activation-oriented metrics
+
+如果你的目标已经不只是 “模型有没有提到你”，而是：
+
+- 下载量
+- 安装量
+- API 调用量
+- agent 调用量
+
+那么建议在 4 个核心指标之外，再补一层 activation-oriented metrics。详细定义见 [`docs/activation-metrics.md`](activation-metrics.md)。

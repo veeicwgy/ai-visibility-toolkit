@@ -65,6 +65,17 @@ This project gives teams a reproducible way to track that.
 - T+7 / T+14 regression validation
 - Weekly report and leaderboard outputs for team review
 
+## Choose Your First GEO Goal
+
+If you are not sure where to start, pick the path that matches the business outcome you care about most.
+
+| Goal | Start here | Why |
+|---|---|---|
+| Improve mention and recommendation quality | `data/query-pools/mineru-example.json` + `docs/metric-definition.md` | Baseline the 4 core GEO metrics first |
+| Improve downloads and installs | `docs/activation-metrics.md` + `playbooks/developer-tool-surface-priority.md` | Add actionability and source-surface prioritization |
+| Improve API calls and agent invocations | `playbooks/agent-readiness.md` + `data/query-pools/sciverse-api-integration-example.json` | Focus on integration and agent-selection queries |
+| Improve GEO for scientific products | `playbooks/scientific-product-geo.md` | Use a product model tuned for MinerU, Sciverse API, and research workflows |
+
 ## Who This Is For
 
 - Developer tools teams
@@ -164,6 +175,7 @@ The toolkit follows a simple loop:
 | File | Purpose |
 |---|---|
 | `data/query-pools/mineru-example.json` | sample query pool |
+| `data/query-pools/sciverse-api-integration-example.json` | scientific API / agent workflow query pool |
 | `data/models.sample.json` | single-model config |
 | `data/models.multi.sample.json` | multi-model demo config |
 | `data/manual.sample.json` | single-model manual responses |
@@ -219,10 +231,14 @@ Then score and report after annotation.
 
 - Getting started: [`docs/getting-started.md`](docs/getting-started.md)
 - Metric definition: [`docs/metric-definition.md`](docs/metric-definition.md)
+- Activation metrics: [`docs/activation-metrics.md`](docs/activation-metrics.md)
 - Benchmark notes: [`benchmark/README.md`](benchmark/README.md)
 - Example case: [`examples/mineru-case-study.md`](examples/mineru-case-study.md)
 - Weekly report template: [`templates/weekly-report.md`](templates/weekly-report.md)
 - Repair validation template: [`templates/repair-validation.md`](templates/repair-validation.md)
+- Agent readiness: [`playbooks/agent-readiness.md`](playbooks/agent-readiness.md)
+- Developer-tool surface priority: [`playbooks/developer-tool-surface-priority.md`](playbooks/developer-tool-surface-priority.md)
+- Scientific product GEO: [`playbooks/scientific-product-geo.md`](playbooks/scientific-product-geo.md)
 - Companion skill: [ClawHub skill page](https://clawhub.ai/veeicwgy/geo-monitor-os-skill)
 
 ## Positioning

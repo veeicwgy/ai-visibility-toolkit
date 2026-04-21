@@ -46,6 +46,7 @@ bash quickstart.sh
 | File | Purpose |
 |---|---|
 | `data/query-pools/mineru-example.json` | 默认开发者工具 Query Pool 示例 |
+| `data/query-pools/sciverse-api-integration-example.json` | scientific API / agent workflow Query Pool 示例 |
 | `data/models.sample.json` | 最小单模型配置 |
 | `data/models.multi.sample.json` | 默认多模型演示配置 |
 | `data/manual.sample.json` | 最小手工回答样例 |
@@ -53,6 +54,17 @@ bash quickstart.sh
 | `schemas/query-pool.schema.json` | Query Pool 结构校验 |
 | `schemas/run-results.schema.json` | 运行结果结构校验 |
 | `schemas/repair-validation.schema.json` | 修复回归记录结构校验 |
+
+## Start By Goal
+
+如果你不是只想“看一个 demo”，而是想把 GEO 用在真实增长目标上，可以按目标选择入口。
+
+| Goal | First file to open | Why |
+|---|---|---|
+| 提高模型提及和推荐质量 | `docs/metric-definition.md` | 先把 4 个核心指标跑通 |
+| 提高下载和安装 | `docs/activation-metrics.md` | 把“提及”延伸到“可执行下一步” |
+| 提高 API 调用和 agent 调用 | `playbooks/agent-readiness.md` | 先修最影响调用成功率的 surfaces |
+| 面向 MinerU / Sciverse / scientific discovery | `playbooks/scientific-product-geo.md` | 直接使用 scientific product 的场景框架 |
 
 ## Recommended Team Workflow
 
@@ -84,6 +96,10 @@ bash quickstart.sh
 | Topic | Path |
 |---|---|
 | Metric definition | `docs/metric-definition.md` |
+| Activation metrics | `docs/activation-metrics.md` |
+| Agent readiness | `playbooks/agent-readiness.md` |
+| Surface priority | `playbooks/developer-tool-surface-priority.md` |
+| Scientific product GEO | `playbooks/scientific-product-geo.md` |
 | Benchmark method | `benchmark/README.md` |
 | Notebook / reader guide | `notebooks/README.md` |
 | Repair template | `templates/repair-validation.md` |
