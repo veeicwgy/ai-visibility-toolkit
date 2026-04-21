@@ -1,3 +1,5 @@
+![AI Visibility Toolkit](assets/logo.svg)
+
 # AI Visibility Toolkit
 
 > Monitor how ChatGPT, Claude, Gemini, and other LLMs describe your developer tool, API, SDK, or open-source project.

@@ -1,3 +1,5 @@
+![AI Visibility Toolkit](assets/logo.svg)
+
 # AI Visibility Toolkit
 
 > 监控 ChatGPT、Claude、Gemini 等大模型如何描述你的 developer tool、API、SDK 或 open-source 项目。
