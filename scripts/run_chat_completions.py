@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_chat_completions.py — Multi-model GEO runner using Chat Completions API.
+run_chat_completions.py — Multi-model AI visibility runner using Chat Completions API.
 
 Supports any OpenAI-compatible provider (OpenAI, Anthropic via proxy,
 Google Gemini, DeepSeek, Qwen, MiniMax, GLM, etc.).
@@ -22,7 +22,7 @@ Output:
     <out-dir>/run_manifest.json     — run metadata
 
 After this step, annotate scores and run:
-    python -m geo_monitor report --input <out-dir>/raw_responses.jsonl --output-dir <out-dir>
+    python -m ai_visibility report --input <out-dir>/raw_responses.jsonl --output-dir <out-dir>
 """
 import argparse
 import concurrent.futures
@@ -100,7 +100,7 @@ def build_row(run_id: str, project: str, model_cfg: dict, query: dict,
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="GEO multi-model runner (Chat Completions)")
+    ap = argparse.ArgumentParser(description="AI visibility multi-model runner (Chat Completions)")
     ap.add_argument("--query-pool", required=True, help="Path to query pool JSON")
     ap.add_argument("--model-config", required=True, help="Path to model config JSON")
     ap.add_argument("--out-dir", required=True, help="Output directory")
@@ -135,7 +135,7 @@ def main() -> None:
     created_at = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
 
     total = len(enabled_models) * len(queries)
-    print(f"[geo-monitor] project={project} models={len(enabled_models)} "
+    print(f"[ai-visibility] project={project} models={len(enabled_models)} "
           f"queries={len(queries)} total={total} workers={args.workers}")
 
     # Build task list
@@ -185,10 +185,10 @@ def main() -> None:
     manifest_path = out_dir / "run_manifest.json"
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"\n[geo-monitor] Done. {len(rows)} records written to {raw_path}")
-    print(f"[geo-monitor] Manifest: {manifest_path}")
+    print(f"\n[ai-visibility] Done. {len(rows)} records written to {raw_path}")
+    print(f"[ai-visibility] Manifest: {manifest_path}")
     print(f"\nNext step — annotate scores, then generate report:")
-    print(f"  python -m geo_monitor report --input {raw_path} --output-dir {out_dir}")
+    print(f"  python -m ai_visibility report --input {raw_path} --output-dir {out_dir}")
     print(json.dumps(manifest, ensure_ascii=False, indent=2))
 
 

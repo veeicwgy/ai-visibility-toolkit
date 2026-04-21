@@ -18,7 +18,7 @@ if [[ -x "$ROOT/.venv/bin/python" ]]; then
   PYTHON_BIN="$ROOT/.venv/bin/python"
 fi
 
-echo "== GEO Monitor Toolkit Doctor =="
+echo "== AI Visibility Toolkit Doctor =="
 echo "repo: $ROOT"
 echo
 

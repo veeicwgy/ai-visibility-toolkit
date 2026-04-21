@@ -1,6 +1,6 @@
 # Metric Definition
 
-本页解释 **GEO Monitor Toolkit** 默认使用的四个核心指标，以及它们应该怎样被一起阅读。
+本页解释 **AI Visibility Toolkit** 默认使用的四个核心指标，以及它们应该怎样被一起阅读。
 
 ## Four Metrics
 
@@ -19,7 +19,7 @@
 - 1 表示部分命中、方向正确但不完整
 - 2 表示明确命中、准确且完整
 
-这种量表对多人复核更稳定，也更适合做长期 GEO 追踪。
+这种量表对多人复核更稳定，也更适合做长期可见性追踪。
 
 ## How to use them together
 

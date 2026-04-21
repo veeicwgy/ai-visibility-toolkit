@@ -1,4 +1,4 @@
-# GEO Quality Gate
+# AI Visibility Quality Gate
 
 A draft should usually be blocked if it has any of these issues:
 

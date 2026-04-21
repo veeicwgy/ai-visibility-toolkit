@@ -15,7 +15,7 @@ MODEL_CONFIG="${MODEL_CONFIG:-data/models.multi.sample.json}"
 MANUAL_RESPONSES="${MANUAL_RESPONSES:-data/manual.multi.sample.json}"
 
 "$PYTHON_BIN" scripts/validate_data.py --repo-root .
-"$PYTHON_BIN" -m geo_monitor run \
+"$PYTHON_BIN" -m ai_visibility run \
   --query-pool "$QUERY_POOL" \
   --model-config "$MODEL_CONFIG" \
   --out-dir "$OUT_DIR" \
@@ -24,7 +24,7 @@ MANUAL_RESPONSES="${MANUAL_RESPONSES:-data/manual.multi.sample.json}"
 "$PYTHON_BIN" scripts/build_leaderboard.py --runs-root data/runs --output-dir data/leaderboards --image-output assets/leaderboard-sample.png
 "$PYTHON_BIN" scripts/build_repair_trend.py
 
-cat <<EOF
+cat <<MSG
 Quickstart complete.
 
 New run:
@@ -39,4 +39,4 @@ Sample report snapshot:
 
 If you are new here, open:
   docs/for-beginners.md
-EOF
+MSG

@@ -1,6 +1,6 @@
 {
-  "name": "geo-monitor-toolkit",
-  "version": "0.1.2",
+  "name": "ai-visibility-toolkit",
+  "version": "0.2.2",
   "owner": "xiaowang",
   "updated_at": "2026-04-21",
   "status": "active",
@@ -22,9 +22,9 @@
     "skills"
   ],
   "skills": [
-    "geo-monitor",
-    "geo-content-check",
-    "geo-fix-negative",
-    "geo-keyword-matrix"
+    "visibility-monitor",
+    "visibility-content-check",
+    "visibility-repair",
+    "visibility-query-matrix"
   ]
 }

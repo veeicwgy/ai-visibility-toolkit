@@ -1,6 +1,6 @@
-# Getting Started with GEO Monitor Toolkit
+# Getting Started with AI Visibility Toolkit
 
-**GEO Monitor Toolkit** 是一个面向 **开发者工具、API、SDK 与开源项目** 的 GEO 监控工具包。它的重点不是通用营销文案生成，而是把 **Query Pool、LLM answer monitoring、四指标打分、repair loop、activation 分析、T+7/T+14 回归验证** 串成可复现的团队工作流。
+**AI Visibility Toolkit** 是一个面向 **开发者工具、API、SDK 与开源项目** 的 AI 可见性监控工具包。它的重点不是通用营销文案生成，而是把 **Query Pool、LLM answer monitoring、四指标打分、repair loop、activation 分析、T+7/T+14 回归验证** 串成可复现的团队工作流。
 
 ## Read This First
 
@@ -11,8 +11,8 @@
 如果你只想先看到“这个仓库跑完后到底会产出什么”，按下面顺序执行即可。
 
 ```bash
-git clone https://github.com/veeicwgy/geo-monitor-toolkit.git
-cd geo-monitor-toolkit
+git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
+cd ai-visibility-toolkit
 bash install.sh
 make doctor
 bash quickstart.sh
@@ -30,8 +30,6 @@ bash quickstart.sh
 | Leaderboard snapshot | `assets/leaderboard-sample.png` | 查看默认多模型对比快照 |
 | Repair trend snapshot | `assets/repair-trend-sample.png` | 查看修复动作后的时间序列改善 |
 
-> 这里的 `quickstart-run` 是当前命令新生成的原始证据；`weekly_report.md` 和 `sciverse-sample-run` 则是仓库内置样板，用来降低首次理解成本。
-
 ## Which Entry Should You Use
 
 | Entry | Command | Best for |
@@ -41,7 +39,9 @@ bash quickstart.sh
 | Quickstart | `bash quickstart.sh` | 首次体验、30 秒看懂产物、零 API 成本演示 |
 | Make target | `make quickstart` | 已熟悉 Make 工作流的团队 |
 | Sciverse sample report | `make sample-report-sciverse` | 直接重建 scientific API 样板的 summary 与周报 |
-| CLI | `python -m geo_monitor ...` | 接入自己的 Query Pool、模型配置与运行目录 |
+| CLI | `python -m ai_visibility ...` | 接入自己的 Query Pool、模型配置与运行目录 |
+
+> 兼容说明：旧 CLI 别名仍然保留，方便兼容已有自动化。
 
 ## Default Runtime Modes
 
@@ -66,18 +66,16 @@ bash quickstart.sh
 
 ## Start By Goal
 
-如果你不是只想“看一个 demo”，而是想把 GEO 用在真实增长目标上，可以按目标选择入口。
+如果你不是只想“看一个 demo”，而是想把 AI visibility 用在真实增长目标上，可以按目标选择入口。
 
 | Goal | First file to open | Why |
 |---|---|---|
 | 提高模型提及和推荐质量 | `docs/metric-definition.md` | 先把 4 个核心指标跑通 |
 | 提高下载和安装 | `docs/activation-metrics.md` | 把“提及”延伸到“可执行下一步” |
 | 提高 API 调用和 agent 调用 | `playbooks/agent-readiness.md` | 先修最影响调用成功率的 surfaces |
-| 面向 MinerU / Sciverse / scientific discovery | `playbooks/scientific-product-geo.md` | 直接使用 scientific product 的场景框架 |
+| 面向 MinerU / Sciverse / scientific discovery | `playbooks/scientific-product-visibility.md` | 直接使用 scientific product 的场景框架 |
 
 ## Recommended Team Workflow
-
-如果你准备正式落地 GEO 监控，可以按下表推进。
 
 | Stage | What to do | Primary artifact |
 |---|---|---|
@@ -96,9 +94,7 @@ bash quickstart.sh
 | Developer tools | 需要监控模型是否正确提及能力、安装方式、生态兼容性 |
 | Open-source maintainers | 需要修复错误认知、陈旧回答与竞品插入 |
 | API / SDK teams | 需要建立稳定 Query Pool，长期观察模型认知变化 |
-| Product marketing + DevRel | 需要一套可以协同、复盘、回归验证的 GEO 中台 |
-
-如果你需要的是通用内容生成器、SEO 博文写手或品牌口号生成器，这个仓库并不是最优入口。
+| Product marketing + DevRel | 需要一套可以协同、复盘、回归验证的 AI 可见性中台 |
 
 ## Read Next
 
@@ -108,20 +104,20 @@ bash quickstart.sh
 | Activation metrics | `docs/activation-metrics.md` |
 | Agent readiness | `playbooks/agent-readiness.md` |
 | Surface priority | `playbooks/developer-tool-surface-priority.md` |
-| Scientific product GEO | `playbooks/scientific-product-geo.md` |
+| Scientific product visibility | `playbooks/scientific-product-visibility.md` |
 | Benchmark method | `benchmark/README.md` |
 | Notebook / reader guide | `notebooks/README.md` |
 | Repair template | `templates/repair-validation.md` |
 | Weekly report template | `templates/weekly-report.md` |
-| Release notes | `release-notes/v0.2.0.md` |
+| Release notes | `release-notes/v0.2.2.md` |
 
 ## Positioning
 
 请把这个仓库理解为：
 
-> **GEO Monitoring OS for Developer Tools**
+> **AI Visibility Workflow for Developer Tools**
 >
 > 它关注的是 **监控、打分、修复、activation 与回归验证**，而不是泛化的营销内容生成。
 >
 > 如果你更想直接进入 agent workflow，可以安装配套的 ClawHub skill：
-> [geo-monitor-os-skill](https://clawhub.ai/veeicwgy/geo-monitor-os-skill)
+> [ai-visibility-toolkit](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)

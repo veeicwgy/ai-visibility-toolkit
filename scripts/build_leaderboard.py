@@ -61,7 +61,7 @@ def write_md(rows, path):
     if len(rows) == 1:
         row = rows[0]
         lines = [
-            "# Single-Model GEO Metrics Snapshot",
+            "# Single-Model AI Visibility Metrics Snapshot",
             "",
             f"Default sample uses one enabled model: **{row['model_id']}**.",
             "",
@@ -95,7 +95,7 @@ def write_png(rows, path):
         labels = [METRIC_LABELS[m] for m in METRICS]
         bars = ax.bar(labels, values, color=METRIC_COLORS, width=0.62)
         ax.set_ylabel("Score")
-        ax.set_title("Single-Model GEO Metrics Snapshot", fontsize=16, pad=20)
+        ax.set_title("Single-Model AI Visibility Metrics Snapshot", fontsize=16, pad=20)
         ax.text(0.5, 1.01, f"Model: {row['model_id']}", transform=ax.transAxes, ha="center", va="bottom", fontsize=10, color="#475569")
         ax.set_ylim(0, 108)
         for bar, value in zip(bars, values):

@@ -22,7 +22,7 @@ sample-report-sciverse:
 sample-reports: sample-report sample-report-sciverse
 
 run-demo:
-	python3 -m geo_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
+	python3 -m ai_visibility run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
 
 leaderboard:
 	python3 scripts/build_leaderboard.py --runs-root data/runs --output-dir data/leaderboards --image-output assets/leaderboard-sample.png

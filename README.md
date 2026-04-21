@@ -1,23 +1,21 @@
-![GEO Monitor Toolkit](assets/logo.png)
-
-# GEO Monitor Toolkit
+# AI Visibility Toolkit
 
 > Monitor how ChatGPT, Claude, Gemini, and other LLMs describe your developer tool, API, SDK, or open-source project.
 
-[![CI](https://github.com/veeicwgy/geo-monitor-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/veeicwgy/geo-monitor-toolkit/actions/workflows/ci.yml)
-![Release](https://img.shields.io/github/v/release/veeicwgy/geo-monitor-toolkit)
+[![CI](https://github.com/veeicwgy/ai-visibility-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/veeicwgy/ai-visibility-toolkit/actions/workflows/ci.yml)
+![Release](https://img.shields.io/github/v/release/veeicwgy/ai-visibility-toolkit)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
-![License](https://img.shields.io/github/license/veeicwgy/geo-monitor-toolkit)
+![License](https://img.shields.io/github/license/veeicwgy/ai-visibility-toolkit)
 
-Prefer agent workflow? Install the [ClawHub skill](https://clawhub.ai/veeicwgy/geo-monitor-os-skill).
+Prefer agent workflow? Install the [ClawHub skill](https://clawhub.ai/veeicwgy/ai-visibility-toolkit).
 
-**GEO Monitor Toolkit** is a **GEO Monitoring OS for developer tools, APIs, SDKs, and open-source projects**.
-It is not a generic content generator. It is a reproducible workflow that connects **Query Pool design, answer monitoring, four-metric scoring, repair loops, activation analysis, and T+7/T+14 regression checks**.
+**AI Visibility Toolkit** is a reproducible monitoring and repair workflow for developer tools, APIs, SDKs, and open-source projects.
+It connects **Query Pool design, answer monitoring, four-metric scoring, repair loops, activation analysis, and T+7/T+14 regression checks** into one practical system.
 
 It pairs:
 
-- the **`geo-monitor-toolkit` repo** for runnable demos, artifacts, and reporting scripts
-- the **GEO Monitor Toolkit skill on ClawHub** for agent-guided monitoring, query-pool design, and repair workflows
+- the **`ai-visibility-toolkit` repo** for runnable demos, artifacts, and reporting scripts
+- the **AI Visibility Toolkit skill on ClawHub** for agent-guided monitoring, query design, and repair workflows
 
 For 中文说明, see [`README.zh-CN.md`](README.zh-CN.md).
 
@@ -38,12 +36,12 @@ If your team is already asking whether LLMs mention your product, describe it co
 If you want the agent workflow instead of starting with the CLI, install the companion skill on ClawHub and start with one of these prompts:
 
 - `Analyze how ChatGPT and Claude describe my API docs`
-- `Build a GEO query pool for my SDK`
+- `Build an AI visibility query pool for my SDK`
 - `Find negative or outdated LLM claims about my project`
 
 The ClawHub skill is the companion agent layer for this repository:
 
-- Skill page: [geo-monitor-os-skill on ClawHub](https://clawhub.ai/veeicwgy/geo-monitor-os-skill)
+- Skill page: [ai-visibility-toolkit on ClawHub](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)
 - Repo quick demo: [30-second path](#30-second-path)
 
 ## 30-second path
@@ -51,8 +49,8 @@ The ClawHub skill is the companion agent layer for this repository:
 For a first run, follow this exact order.
 
 ```bash
-git clone https://github.com/veeicwgy/geo-monitor-toolkit.git
-cd geo-monitor-toolkit
+git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
+cd ai-visibility-toolkit
 bash install.sh
 make doctor
 bash quickstart.sh
@@ -76,32 +74,32 @@ After the first run, start with these outputs.
 
 ## Beginner-first docs
 
-If you are new to GEO monitoring, start with these entry points.
+If you are new to AI visibility monitoring, start with these entry points.
 
 | Document | Purpose |
 |---|---|
 | `docs/for-beginners.md` | 5-minute path: run it once and read the outputs |
 | `docs/getting-started.md` | Long-form onboarding with modes, outputs, and team usage |
-| `docs/activation-metrics.md` | Extend GEO from awareness into install, API, and agent adoption |
+| `docs/activation-metrics.md` | Extend answer visibility into install, API, and agent adoption |
 
-## Choose your first GEO goal
+## Choose your first visibility goal
 
 If you are not sure where to start, pick the path that matches the business outcome you care about most.
 
 | Goal | Start here | Why |
 |---|---|---|
-| Improve mention and recommendation quality | `data/query-pools/mineru-example.json` + `docs/metric-definition.md` | Baseline the 4 core GEO metrics first |
+| Improve mention and recommendation quality | `data/query-pools/mineru-example.json` + `docs/metric-definition.md` | Baseline the 4 core visibility metrics first |
 | Improve downloads and installs | `docs/activation-metrics.md` + `playbooks/developer-tool-surface-priority.md` | Add actionability and source-surface prioritization |
 | Improve API calls and agent invocations | `playbooks/agent-readiness.md` + `data/query-pools/sciverse-api-integration-example.json` | Focus on integration and agent-selection queries |
-| Improve GEO for scientific products | `playbooks/scientific-product-geo.md` | Use a product model tuned for MinerU, Sciverse API, and research workflows |
+| Improve visibility for scientific products | `playbooks/scientific-product-visibility.md` | Use a product model tuned for MinerU, Sciverse API, and research workflows |
 
 ## Which mode should you choose
 
 | Your situation | Recommended mode | Entry point |
 |---|---|---|
 | No API key yet and you only want to see the full workflow | Quickstart replay | `bash quickstart.sh` |
-| You already copied answers from external chat products and want to score them | Manual paste mode | `python -m geo_monitor run --manual-responses ...` |
-| You want real, repeatable, multi-model GEO monitoring | API collection mode | `python -m geo_monitor run --query-pool ... --model-config ...` |
+| You already copied answers from external chat products and want to score them | Manual paste mode | `python -m ai_visibility run --manual-responses ...` |
+| You want real, repeatable, multi-model monitoring | API collection mode | `python -m ai_visibility run --query-pool ... --model-config ...` |
 
 ## Core commands
 
@@ -113,7 +111,9 @@ If you are not sure where to start, pick the path that matches the business outc
 | `make sample-report` | Rebuilds the MinerU sample report and chart assets |
 | `make sample-report-sciverse` | Rebuilds the Sciverse API sample summary and weekly report |
 | `make sample-reports` | Rebuilds both default sample report packages |
-| `python -m geo_monitor run ...` | Runs custom Query Pool monitoring |
+| `python -m ai_visibility run ...` | Runs custom Query Pool monitoring |
+
+> Compatibility note: a legacy CLI alias remains supported for existing automation.
 
 ## Default sample inputs
 
@@ -140,14 +140,14 @@ If you are not sure where to start, pick the path that matches the business outc
 - Repair validation template: [`templates/repair-validation.md`](templates/repair-validation.md)
 - Agent readiness: [`playbooks/agent-readiness.md`](playbooks/agent-readiness.md)
 - Developer-tool surface priority: [`playbooks/developer-tool-surface-priority.md`](playbooks/developer-tool-surface-priority.md)
-- Scientific product GEO: [`playbooks/scientific-product-geo.md`](playbooks/scientific-product-geo.md)
-- Companion skill: [ClawHub skill page](https://clawhub.ai/veeicwgy/geo-monitor-os-skill)
+- Scientific product visibility: [`playbooks/scientific-product-visibility.md`](playbooks/scientific-product-visibility.md)
+- Companion skill: [ClawHub skill page](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)
 
 ## Repository positioning
 
 Think of this repository as:
 
-> **GEO Monitoring OS for Developer Tools**
+> **AI Visibility Workflow for Developer Tools**
 >
 > It focuses on **monitoring, scoring, repair, activation, and regression**, not on generic marketing copy generation.
 

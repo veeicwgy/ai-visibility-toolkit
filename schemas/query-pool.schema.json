@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "GEO Query Pool",
+  "title": "AI Visibility Query Pool",
   "type": "object",
   "required": ["project", "version", "segments"],
   "properties": {

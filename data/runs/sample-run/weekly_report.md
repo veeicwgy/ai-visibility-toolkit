@@ -1,4 +1,4 @@
-# GEO Weekly Report
+# AI Visibility Weekly Report
 
 ## Run
 

@@ -1,4 +1,4 @@
-# GEO Weekly Report Template
+# AI Visibility Weekly Report Template
 
 | Model | Mention Rate | Positive Mention Rate | Capability Accuracy | Ecosystem Accuracy | Top Issue |
 |---|---|---|---|---|---|

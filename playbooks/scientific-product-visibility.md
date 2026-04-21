@@ -1,4 +1,4 @@
-# Scientific Product GEO Playbook
+# Scientific Product Visibility Playbook
 
 这份 playbook 面向三类产品：
 
@@ -14,7 +14,7 @@
 
 ## 一、为什么 scientific products 需要单独建模
 
-这类产品的 GEO 问题通常不是泛化的“品牌曝光”，而是：
+这类产品的 AI 可见性问题通常不是泛化的“品牌曝光”，而是：
 
 1. 模型能不能正确理解复杂科研场景；
 2. 模型会不会把你放进真实 workflow；

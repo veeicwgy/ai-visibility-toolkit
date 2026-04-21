@@ -1,6 +1,6 @@
-# GEO Monitor Toolkit 新手上手（5 分钟版）
+# AI Visibility Toolkit 新手上手（5 分钟版）
 
-> 目标：你不需要先理解全部 GEO 概念，也可以先跑出第一份可读结果。
+> 目标：你不需要先理解全部概念，也可以先跑出第一份可读结果。
 
 ## 你会得到什么
 
@@ -31,8 +31,8 @@ make doctor
 ## 1. 安装
 
 ```bash
-git clone https://github.com/veeicwgy/geo-monitor-toolkit.git
-cd geo-monitor-toolkit
+git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
+cd ai-visibility-toolkit
 bash install.sh
 ```
 
@@ -44,7 +44,7 @@ bash quickstart.sh
 
 这一步会用仓库内样例数据跑完整演示流程，不需要你先配置 API key。
 
-## 3. 看结果（先看这 3 个）
+## 3. 看结果
 
 ### A. 周报
 

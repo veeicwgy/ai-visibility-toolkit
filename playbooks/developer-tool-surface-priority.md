@@ -2,7 +2,7 @@
 
 这份 playbook 用来回答：
 
-> 当 GEO 结果不理想时，开发者工具团队应该先修哪里，才能最快影响下载、安装、调用和 agent 采用？
+> 当 AI 可见性结果不理想时，开发者工具团队应该先修哪里，才能最快影响下载、安装、调用和 agent 采用？
 
 不是所有页面都同等重要。对 developer tools、API、SDK、scientific products 来说，优先级通常差异很大。
 

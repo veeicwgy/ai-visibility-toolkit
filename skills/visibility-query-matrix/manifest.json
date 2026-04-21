@@ -1,14 +1,14 @@
 {
-  "name": "geo-fix-negative",
-  "version": "0.1.0",
+  "name": "visibility-query-matrix",
+  "version": "0.2.2",
   "owner": "xiaowang",
-  "updated_at": "2026-04-16",
+  "updated_at": "2026-04-21",
   "status": "active",
   "maturity_tier": "beta",
   "lifecycle_stage": "active",
   "context_budget_tier": "production",
   "review_cadence": "monthly",
-  "skill_archetype": "repair",
+  "skill_archetype": "research",
   "target_platforms": ["openai", "claude", "generic", "agent-skills-compatible"],
   "factory_components": ["references"]
 }
