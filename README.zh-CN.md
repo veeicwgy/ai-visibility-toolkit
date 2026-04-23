@@ -11,7 +11,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-[查看 demo 源文件](docs/index.html) · [MinerU 公开 benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API 公开 benchmark](benchmark/sciverse-api-public-benchmark.md)
+[打开零安装 Demo](https://veeicwgy.github.io/devtool-answer-monitor/) · [查看 demo 源文件](docs/index.html) · [MinerU 公开 benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API 公开 benchmark](benchmark/sciverse-api-public-benchmark.md)
 
 <p align="center">
   <img src="assets/mineru-before-after.svg" alt="MinerU 修复前后指标变化" width="31%" />
@@ -32,12 +32,12 @@
 
 ## 零安装 Demo
 
-仓库已经包含 `docs/` 下的零安装静态 viewer。
+仓库现在已经通过 GitHub Pages 提供零安装静态 viewer。
 
-- 当前线上状态：等待 GitHub Pages 权限开通
+- Live Demo： [veeicwgy.github.io/devtool-answer-monitor](https://veeicwgy.github.io/devtool-answer-monitor/)
 - Viewer 源文件：[`docs/index.html`](docs/index.html)、[`docs/demo.js`](docs/demo.js)、[`docs/data/demo-metrics.json`](docs/data/demo-metrics.json)
 - 它会展示什么：MinerU baseline / T+7 / T+14、Sciverse API funnel-stage 切片、top repair candidates、阶段差异
-- 正式发布后不需要：API key、依赖安装、本地环境
+- 不需要：API key、依赖安装、本地环境
 
 ## 公开 benchmark / case study
 

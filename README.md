@@ -11,7 +11,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-[Inspect the demo source](docs/index.html) · [MinerU benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API benchmark](benchmark/sciverse-api-public-benchmark.md)
+[Open the zero-install demo](https://veeicwgy.github.io/devtool-answer-monitor/) · [Inspect the demo source](docs/index.html) · [MinerU benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API benchmark](benchmark/sciverse-api-public-benchmark.md)
 
 <p align="center">
   <img src="assets/mineru-before-after.svg" alt="MinerU before and after repair loop metrics" width="31%" />
@@ -32,12 +32,12 @@ It connects **query design, answer monitoring, four-metric scoring, repair loops
 
 ## Zero-install demo
 
-The repository already includes a zero-install static viewer under `docs/`.
+The repository now ships a live zero-install static viewer backed by GitHub Pages.
 
-- Current live status: waiting for GitHub Pages permission
+- Live demo: [veeicwgy.github.io/devtool-answer-monitor](https://veeicwgy.github.io/devtool-answer-monitor/)
 - Viewer source: [`docs/index.html`](docs/index.html), [`docs/demo.js`](docs/demo.js), [`docs/data/demo-metrics.json`](docs/data/demo-metrics.json)
 - What it shows: MinerU baseline vs T+7 vs T+14, Sciverse API funnel-stage slices, top repair candidates, and stage-level gaps
-- What it does not need once published: API keys, package installs, or local setup
+- What it does not need: API keys, package installs, or local setup
 
 ## Public benchmark stories
 
