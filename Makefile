@@ -1,4 +1,4 @@
-.PHONY: install doctor validate sample-report sample-report-sciverse sample-reports run-demo leaderboard quick-demo quickstart
+.PHONY: install doctor validate demo-data sample-report sample-report-sciverse sample-reports run-demo leaderboard quick-demo quickstart
 
 install:
 	bash ./install.sh
@@ -8,6 +8,9 @@ doctor:
 
 validate:
 	python3 scripts/validate_data.py --repo-root .
+
+demo-data:
+	python3 scripts/build_demo_data.py
 
 sample-report:
 	python3 scripts/score_run.py --input data/runs/sample-run/annotations.jsonl --output-dir data/runs/sample-run
@@ -22,13 +25,13 @@ sample-report-sciverse:
 sample-reports: sample-report sample-report-sciverse
 
 run-demo:
-	python3 -m ai_visibility run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
+	python3 -m devtool_answer_monitor run --query-pool data/query-pools/mineru-example.json --model-config data/models.multi.sample.json --out-dir data/runs/demo-run --manual-responses data/manual.multi.sample.json
 
 leaderboard:
 	python3 scripts/build_leaderboard.py --runs-root data/runs --output-dir data/leaderboards --image-output assets/leaderboard-sample.png
 	python3 scripts/build_repair_trend.py
 
-quick-demo: run-demo sample-report validate
+quick-demo: run-demo sample-report demo-data validate
 
 quickstart:
 	bash ./quickstart.sh

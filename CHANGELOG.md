@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+## v0.3.0
+
+### Added
+- Added a zero-install static demo viewer under `docs/` powered by committed sample-run summaries.
+- Added public benchmark stories for MinerU and Sciverse API to show concrete before-after outcomes and activation gaps.
+- Added the new preferred CLI alias `python -m devtool_answer_monitor` while keeping older aliases for compatibility.
+
+### Changed
+- Renamed the public project brand to **DevTool Answer Monitor** for clearer GitHub positioning and less naming collision.
+- Reworked both README front pages to lead with result images, proof links, and public benchmark stories instead of long-form explanation.
+- Tightened repository metadata, documentation language, and skill homepage links around developer-tool answer monitoring.
+- Prepared the repository for a GitHub Pages zero-install demo and a more focused topic set.
+
 ## v0.2.4
 
 ### Changed

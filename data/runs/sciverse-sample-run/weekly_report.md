@@ -1,4 +1,4 @@
-# AI Visibility Weekly Report
+# DevTool Answer Monitor Weekly Report
 
 ## Run
 

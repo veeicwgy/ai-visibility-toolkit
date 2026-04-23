@@ -31,9 +31,9 @@
   <path d="M196 128L229 95" stroke="#0F172A" stroke-width="8" stroke-linecap="round"/>
   <path d="M103 219L136 186" stroke="#0F172A" stroke-width="8" stroke-linecap="round" opacity="0.28"/>
 
-  <g font-family="Inter, Segoe UI, Arial, sans-serif" fill="#0F172A">
-    <text x="332" y="136" font-size="64" font-weight="700" letter-spacing="-1.2">AI Visibility</text>
-    <text x="332" y="194" font-size="48" font-weight="600" fill="#0F766E">Toolkit</text>
-    <text x="334" y="236" font-size="24" font-weight="500" fill="#475569">Monitor how LLMs describe your product</text>
+  <g font-family="Avenir Next, Segoe UI, Arial, sans-serif" fill="#0F172A">
+    <text x="332" y="136" font-size="58" font-weight="700" letter-spacing="-1.2">DevTool Answer</text>
+    <text x="332" y="194" font-size="52" font-weight="700" fill="#0F766E">Monitor</text>
+    <text x="334" y="236" font-size="24" font-weight="500" fill="#475569">Track what LLMs say before users choose your tool</text>
   </g>
 </svg>

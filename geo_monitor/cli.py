@@ -32,7 +32,7 @@ def cmd_leaderboard(ns):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(prog='python -m ai_visibility')
+    parser = argparse.ArgumentParser(prog='python -m devtool_answer_monitor')
     sub = parser.add_subparsers(dest='command', required=True)
 
     run_p = sub.add_parser('run', help='Run query pool collection')

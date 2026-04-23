@@ -15,7 +15,7 @@ MODEL_CONFIG="${MODEL_CONFIG:-data/models.multi.sample.json}"
 MANUAL_RESPONSES="${MANUAL_RESPONSES:-data/manual.multi.sample.json}"
 
 "$PYTHON_BIN" scripts/validate_data.py --repo-root .
-"$PYTHON_BIN" -m ai_visibility run \
+"$PYTHON_BIN" -m devtool_answer_monitor run \
   --query-pool "$QUERY_POOL" \
   --model-config "$MODEL_CONFIG" \
   --out-dir "$OUT_DIR" \

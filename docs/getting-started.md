@@ -1,6 +1,6 @@
-# Getting Started with AI Visibility Toolkit
+# Getting Started with DevTool Answer Monitor
 
-**AI Visibility Toolkit** 是一个面向 **开发者工具、API、SDK 与开源项目** 的 AI 可见性监控工具包。它的重点不是通用营销文案生成，而是把 **Query Pool、LLM answer monitoring、四指标打分、repair loop、activation 分析、T+7/T+14 回归验证** 串成可复现的团队工作流。
+**DevTool Answer Monitor** 是一个面向 **开发者工具、API、SDK 与开源项目** 的答案监控工具包。它的重点不是通用营销文案生成，而是把 **Query Pool、LLM answer monitoring、四指标打分、repair loop、activation 分析、T+7/T+14 回归验证** 串成可复现的团队工作流。
 
 ## Read This First
 
@@ -11,8 +11,8 @@
 如果你只想先看到“这个仓库跑完后到底会产出什么”，按下面顺序执行即可。
 
 ```bash
-git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
-cd ai-visibility-toolkit
+git clone https://github.com/veeicwgy/devtool-answer-monitor.git
+cd devtool-answer-monitor
 bash install.sh
 make doctor
 bash quickstart.sh
@@ -39,7 +39,7 @@ bash quickstart.sh
 | Quickstart | `bash quickstart.sh` | 首次体验、30 秒看懂产物、零 API 成本演示 |
 | Make target | `make quickstart` | 已熟悉 Make 工作流的团队 |
 | Sciverse sample report | `make sample-report-sciverse` | 直接重建 scientific API 样板的 summary 与周报 |
-| CLI | `python -m ai_visibility ...` | 接入自己的 Query Pool、模型配置与运行目录 |
+| CLI | `python -m devtool_answer_monitor ...` | 接入自己的 Query Pool、模型配置与运行目录 |
 
 > 兼容说明：旧 CLI 别名仍然保留，方便兼容已有自动化。
 
@@ -109,15 +109,14 @@ bash quickstart.sh
 | Notebook / reader guide | `notebooks/README.md` |
 | Repair template | `templates/repair-validation.md` |
 | Weekly report template | `templates/weekly-report.md` |
-| Release notes | `release-notes/v0.2.2.md` |
+| Release notes | `release-notes/v0.3.0.md` |
 
 ## Positioning
 
 请把这个仓库理解为：
 
-> **AI Visibility Workflow for Developer Tools**
+> **Answer Monitoring Workflow for Developer Tools**
 >
 > 它关注的是 **监控、打分、修复、activation 与回归验证**，而不是泛化的营销内容生成。
 >
-> 如果你更想直接进入 agent workflow，可以安装配套的 ClawHub skill：
-> [ai-visibility-toolkit](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)
+> 如果你更想直接进入 agent workflow，可以从仓库根目录的 [`SKILL.md`](../SKILL.md) 开始。

@@ -1,13 +1,21 @@
-# Benchmark Sample
+# Public Benchmarks
 
-这个目录用于展示 **同一类 Query Pool，不同项目** 的横向比较方式，帮助团队做竞品与标杆项目的 GEO 对照。
+This folder contains public, version-controlled benchmark stories for the repository.
 
-## 初始样例
+## Available pages
 
-| 项目 | 类型 | 说明 |
-|---|---|---|
-| MinerU | Developer tool | 复杂文档与网页解析 |
-| FastAPI | Open-source library | Python API 框架与生态认知 |
+| Page | Focus |
+|---|---|
+| [MinerU public benchmark](mineru-public-benchmark.md) | Baseline -> T+7 -> T+14 repair loop for a developer tool |
+| [Sciverse API public benchmark](sciverse-api-public-benchmark.md) | Public snapshot for a scientific API and agent workflow |
 
-当前仓库先提供结构化范式，后续可以将两者放在同一类问题簇下，对比提及率、能力准确率与生态准确率的差异。建议输出统一为 `summary.json`、`metrics.csv` 与对比说明页。
+## Why these pages exist
 
+They give new visitors something stronger than a feature list:
+
+- a concrete product name
+- a concrete metric set
+- a concrete artifact trail
+- a concrete repair story
+
+That makes the repository easier to understand, easier to share, and easier to trust.

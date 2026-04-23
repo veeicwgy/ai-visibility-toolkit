@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "AI Visibility Run Summary",
+  "title": "DevTool Answer Monitor Run Summary",
   "type": "object",
   "required": ["run_id", "created_at", "project", "metrics", "by_model", "record_count"],
   "properties": {

@@ -1,96 +1,77 @@
-![AI Visibility Toolkit](assets/logo.svg)
+![DevTool Answer Monitor](assets/logo.svg)
 
-# AI Visibility Toolkit
+# DevTool Answer Monitor
 
-> Monitor how ChatGPT, Claude, Gemini, and other LLMs describe your developer tool, API, SDK, or open-source project.
+> Track what LLMs say before users choose your developer tool.
 
-[![CI](https://github.com/veeicwgy/ai-visibility-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/veeicwgy/ai-visibility-toolkit/actions/workflows/ci.yml)
-![Release](https://img.shields.io/github/v/release/veeicwgy/ai-visibility-toolkit)
+[![CI](https://github.com/veeicwgy/devtool-answer-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/veeicwgy/devtool-answer-monitor/actions/workflows/ci.yml)
+![Release](https://img.shields.io/github/v/release/veeicwgy/devtool-answer-monitor)
 ![Python](https://img.shields.io/badge/python-3.11-blue)
-![License](https://img.shields.io/github/license/veeicwgy/ai-visibility-toolkit)
+![License](https://img.shields.io/github/license/veeicwgy/devtool-answer-monitor)
 
-Prefer agent workflow? Install the [ClawHub skill](https://clawhub.ai/veeicwgy/ai-visibility-toolkit).
+[Open the zero-install demo](https://veeicwgy.github.io/devtool-answer-monitor/) · [MinerU benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API benchmark](benchmark/sciverse-api-public-benchmark.md)
 
-**AI Visibility Toolkit** is a reproducible monitoring and repair workflow for developer tools, APIs, SDKs, and open-source projects.
-It connects **Query Pool design, answer monitoring, four-metric scoring, repair loops, activation analysis, and T+7/T+14 regression checks** into one practical system.
+<p align="center">
+  <img src="assets/mineru-before-after.svg" alt="MinerU before and after repair loop metrics" width="31%" />
+  <img src="assets/leaderboard-sample.png" alt="Leaderboard sample" width="31%" />
+  <img src="assets/repair-trend-sample.png" alt="Repair trend sample" width="31%" />
+</p>
 
-It pairs:
+**DevTool Answer Monitor** is a reproducible monitoring and repair workflow for developer tools, APIs, SDKs, and open-source projects.
+It connects **query design, answer monitoring, four-metric scoring, repair loops, activation analysis, and T+7/T+14 regression checks** into one practical system.
 
-- the **`ai-visibility-toolkit` repo** for runnable demos, artifacts, and reporting scripts
-- the **AI Visibility Toolkit skill on ClawHub** for agent-guided monitoring, query design, and repair workflows
+## Why people star this repo
 
-For 中文说明, see [`README.zh-CN.md`](README.zh-CN.md).
+- It ships a **zero-install sample viewer** so you can inspect real output before cloning anything.
+- It keeps **versioned benchmark artifacts** for MinerU and Sciverse API instead of vague marketing claims.
+- It gives you a **repair loop with visible deltas** so you can show whether docs and positioning changes actually improved model answers.
 
-## Why this repository exists
+> If this is the kind of workflow you want to keep on your radar, star the repo. New benchmarks, query pools, and viewer updates land here first.
 
-If your team is already asking whether LLMs mention your product, describe it correctly, recommend it positively, or improve after documentation fixes, this repository turns that concern into an executable and reviewable workflow.
+## Zero-install demo
 
-| What you need to answer | What this repository gives you |
-|---|---|
-| Do models mention our product at all? | Query Pool + raw responses |
-| When they mention us, is it accurate and positive? | Four-metric scoring framework |
-| Where should we repair the source of truth? | Placement and repair lens |
-| Are we improving installs, API calls, or agent adoption? | Activation metrics + funnel-stage slices |
-| Did our fixes actually improve model answers? | T+7 / T+14 regression checks |
+Open the public sample-run viewer:
 
-## Try the Skill
+- Demo: [veeicwgy.github.io/devtool-answer-monitor](https://veeicwgy.github.io/devtool-answer-monitor/)
+- What it shows: MinerU baseline vs T+7 vs T+14, Sciverse API funnel-stage slices, top repair candidates, and stage-level gaps
+- What it does not need: API keys, package installs, or local setup
 
-If you want the agent workflow instead of starting with the CLI, install the companion skill on ClawHub and start with one of these prompts:
+## Public benchmark stories
 
-- `Analyze how ChatGPT and Claude describe my API docs`
-- `Build an AI visibility query pool for my SDK`
-- `Find negative or outdated LLM claims about my project`
-
-The ClawHub skill is the companion agent layer for this repository:
-
-- Skill page: [ai-visibility-toolkit on ClawHub](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)
-- Repo quick demo: [30-second path](#30-second-path)
+- [MinerU public benchmark](benchmark/mineru-public-benchmark.md): a real repair-loop story with baseline, T+7, and T+14 metrics
+- [Sciverse API public benchmark](benchmark/sciverse-api-public-benchmark.md): a public snapshot for awareness, selection, activation, integration, and agent scenarios
 
 ## 30-second path
 
-For a first run, follow this exact order.
+If you want a local run after the browser demo, follow this exact order.
 
 ```bash
-git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
-cd ai-visibility-toolkit
+git clone https://github.com/veeicwgy/devtool-answer-monitor.git
+cd devtool-answer-monitor
 bash install.sh
 make doctor
 bash quickstart.sh
 ```
 
-## What you will get first
-
-After the first run, start with these outputs.
+## What you get first
 
 | Output | Path | Why it matters |
 |---|---|---|
 | Raw responses | `data/runs/quickstart-run/raw_responses.jsonl` | Review multi-model answer evidence |
 | Score draft | `data/runs/quickstart-run/score_draft.jsonl` | Start manual review and annotation |
 | Weekly report snapshot | `data/runs/sample-run/weekly_report.md` | See the report format a team can consume |
+| MinerU repair loop | `data/runs/repair-t7-run/summary.json` and `data/runs/repair-t14-run/summary.json` | Inspect a versioned before-and-after story |
 | Sciverse sample summary | `data/runs/sciverse-sample-run/summary.json` | See a scientific API sample with funnel-stage slices |
-| Sciverse sample weekly report | `data/runs/sciverse-sample-run/weekly_report.md` | See a complete second sample for API and agent scenarios |
 | Leaderboard snapshot | `assets/leaderboard-sample.png` | Understand the default multi-model comparison |
 | Repair trend snapshot | `assets/repair-trend-sample.png` | See how follow-up runs can be visualized over time |
 
-> `quickstart.sh` creates a fresh `quickstart-run` with raw evidence, then replays built-in sample summaries to generate report and chart snapshots. Your first run therefore shows both what a new run looks like and what a mature output package looks like.
+> `quickstart.sh` creates a fresh `quickstart-run` with raw evidence, then replays built-in sample summaries to generate report and chart snapshots.
 
-## Beginner-first docs
-
-If you are new to AI visibility monitoring, start with these entry points.
-
-| Document | Purpose |
-|---|---|
-| `docs/for-beginners.md` | 5-minute path: run it once and read the outputs |
-| `docs/getting-started.md` | Long-form onboarding with modes, outputs, and team usage |
-| `docs/activation-metrics.md` | Extend answer visibility into install, API, and agent adoption |
-
-## Choose your first visibility goal
-
-If you are not sure where to start, pick the path that matches the business outcome you care about most.
+## Choose your first outcome
 
 | Goal | Start here | Why |
 |---|---|---|
-| Improve mention and recommendation quality | `data/query-pools/mineru-example.json` + `docs/metric-definition.md` | Baseline the 4 core visibility metrics first |
+| Improve mention and recommendation quality | `data/query-pools/mineru-example.json` + `docs/metric-definition.md` | Baseline the 4 core metrics first |
 | Improve downloads and installs | `docs/activation-metrics.md` + `playbooks/developer-tool-surface-priority.md` | Add actionability and source-surface prioritization |
 | Improve API calls and agent invocations | `playbooks/agent-readiness.md` + `data/query-pools/sciverse-api-integration-example.json` | Focus on integration and agent-selection queries |
 | Improve visibility for scientific products | `playbooks/scientific-product-visibility.md` | Use a product model tuned for MinerU, Sciverse API, and research workflows |
@@ -99,9 +80,9 @@ If you are not sure where to start, pick the path that matches the business outc
 
 | Your situation | Recommended mode | Entry point |
 |---|---|---|
-| No API key yet and you only want to see the full workflow | Quickstart replay | `bash quickstart.sh` |
-| You already copied answers from external chat products and want to score them | Manual paste mode | `python -m ai_visibility run --manual-responses ...` |
-| You want real, repeatable, multi-model monitoring | API collection mode | `python -m ai_visibility run --query-pool ... --model-config ...` |
+| No API key yet and you only want to see the workflow | Quickstart replay | `bash quickstart.sh` |
+| You already copied answers from external chat products and want to score them | Manual paste mode | `python -m devtool_answer_monitor run --manual-responses ...` |
+| You want real, repeatable, multi-model monitoring | API collection mode | `python -m devtool_answer_monitor run --query-pool ... --model-config ...` |
 
 ## Core commands
 
@@ -110,46 +91,46 @@ If you are not sure where to start, pick the path that matches the business outc
 | `bash install.sh` | Creates `.venv` and installs dependencies |
 | `make doctor` | Checks Python, dependencies, sample files, and output directories |
 | `bash quickstart.sh` | Runs the zero-API-cost beginner demo |
+| `make demo-data` | Rebuilds the zero-install sample viewer data |
 | `make sample-report` | Rebuilds the MinerU sample report and chart assets |
 | `make sample-report-sciverse` | Rebuilds the Sciverse API sample summary and weekly report |
 | `make sample-reports` | Rebuilds both default sample report packages |
-| `python -m ai_visibility run ...` | Runs custom Query Pool monitoring |
+| `python -m devtool_answer_monitor run ...` | Runs custom query-pool monitoring |
 
-> Compatibility note: a legacy CLI alias remains supported for existing automation.
+> Compatibility note: `python -m ai_visibility` and `python -m geo_monitor` remain supported for existing automation.
 
 ## Default sample inputs
 
 | File | Purpose |
 |---|---|
-| `data/query-pools/mineru-example.json` | Default Query Pool sample for developer tools |
-| `data/query-pools/sciverse-api-integration-example.json` | Scientific API and agent workflow Query Pool sample |
+| `data/query-pools/mineru-example.json` | Default query-pool sample for developer tools |
+| `data/query-pools/sciverse-api-integration-example.json` | Scientific API and agent workflow query-pool sample |
 | `data/models.sample.json` | Minimal single-model config |
 | `data/models.multi.sample.json` | Default multi-model config |
 | `data/manual.sample.json` | Minimal manual-response sample |
 | `data/manual.multi.sample.json` | Multi-model manual-response sample |
-| `data/runs/sample-run/summary.json` | Complete MinerU sample summary |
+| `data/runs/sample-run/summary.json` | MinerU baseline sample summary |
+| `data/runs/repair-t7-run/summary.json` | MinerU T+7 repair summary |
+| `data/runs/repair-t14-run/summary.json` | MinerU T+14 repair summary |
 | `data/runs/sciverse-sample-run/summary.json` | Complete Sciverse API sample summary |
 
 ## Docs
 
-- Getting started: [`docs/getting-started.md`](docs/getting-started.md)
 - 5-minute beginner path: [`docs/for-beginners.md`](docs/for-beginners.md)
+- Long-form onboarding: [`docs/getting-started.md`](docs/getting-started.md)
 - Metric definition: [`docs/metric-definition.md`](docs/metric-definition.md)
 - Activation metrics: [`docs/activation-metrics.md`](docs/activation-metrics.md)
-- Benchmark notes: [`benchmark/README.md`](benchmark/README.md)
-- Example case: [`examples/mineru-case-study.md`](examples/mineru-case-study.md)
-- Weekly report template: [`templates/weekly-report.md`](templates/weekly-report.md)
-- Repair validation template: [`templates/repair-validation.md`](templates/repair-validation.md)
 - Agent readiness: [`playbooks/agent-readiness.md`](playbooks/agent-readiness.md)
 - Developer-tool surface priority: [`playbooks/developer-tool-surface-priority.md`](playbooks/developer-tool-surface-priority.md)
 - Scientific product visibility: [`playbooks/scientific-product-visibility.md`](playbooks/scientific-product-visibility.md)
-- Companion skill: [ClawHub skill page](https://clawhub.ai/veeicwgy/ai-visibility-toolkit)
+- Benchmark index: [`benchmark/README.md`](benchmark/README.md)
+- MinerU example case: [`examples/mineru-case-study.md`](examples/mineru-case-study.md)
 
 ## Repository positioning
 
 Think of this repository as:
 
-> **AI Visibility Workflow for Developer Tools**
+> **Answer observability for developer tools**
 >
 > It focuses on **monitoring, scoring, repair, activation, and regression**, not on generic marketing copy generation.
 
@@ -159,8 +140,9 @@ Contributions are welcome.
 
 Useful contributions include:
 
-- new query pool examples
+- new query-pool examples
 - benchmark cases
+- sample-run viewer improvements
 - runner improvements
 - report improvements
 - schema and validation improvements

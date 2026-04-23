@@ -1,5 +1,5 @@
 {
-  "_comment": "Model config for geo-monitor runners. Set enabled=false to skip a model. All models use the OpenAI Chat Completions API format. Set OPENAI_BASE_URL to point at a proxy/gateway that serves multiple providers.",
+  "_comment": "Model config for answer-monitor runners. Set enabled=false to skip a model. All models use the OpenAI Chat Completions API format. Set OPENAI_BASE_URL to point at a proxy/gateway that serves multiple providers.",
   "models": [
     {
       "id": "gpt-4.1-mini",

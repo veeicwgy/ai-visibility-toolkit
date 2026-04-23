@@ -1,14 +1,14 @@
 ---
-name: ai-visibility-toolkit
+name: devtool-answer-monitor
 description: >
-  Use when the user wants to monitor how ChatGPT, Claude, Gemini, and other LLMs describe a developer tool, API, SDK, or open-source project. AI Visibility Toolkit is the companion skill for the ai-visibility-toolkit repo and covers query pool design, four-metric monitoring, model-specific content placement, content checks, negative-answer repair, activation analysis, and T+7 or T+14 regression validation.
+  Use when the user wants to monitor how ChatGPT, Claude, Gemini, and other LLMs describe a developer tool, API, SDK, or open-source project. DevTool Answer Monitor is the companion skill for the devtool-answer-monitor repo and covers query pool design, four-metric monitoring, model-specific content placement, content checks, negative-answer repair, activation analysis, and T+7 or T+14 regression validation.
 license: MIT
 allowed-tools: Read
 metadata:
   openclaw:
     emoji: "📈"
     author: "veeicwgy"
-    homepage: "https://github.com/veeicwgy/ai-visibility-toolkit"
+    homepage: "https://github.com/veeicwgy/devtool-answer-monitor"
     requires:
       env:
         - OPENAI_API_KEY
@@ -28,13 +28,13 @@ metadata:
         sensitive: false
 ---
 
-# Monitor How LLMs Describe Your Dev Tool
+# Monitor What LLMs Say Before Users Choose Your Dev Tool
 
 Use this skill as the **main visibility workflow router** for developer tools and open-source products.
 
-**Brand:** AI Visibility Toolkit
+**Brand:** DevTool Answer Monitor
 
-**Companion repo:** [`ai-visibility-toolkit`](https://github.com/veeicwgy/ai-visibility-toolkit)
+**Companion repo:** [`devtool-answer-monitor`](https://github.com/veeicwgy/devtool-answer-monitor)
 
 Use this when you want an agent to help you monitor how LLMs describe your product, build a reusable query pool, diagnose negative or outdated answers, and plan what to fix next.
 
@@ -50,7 +50,7 @@ Use this when you want an agent to help you monitor how LLMs describe your produ
 Copy one of these prompts to begin:
 
 - `Analyze how ChatGPT and Claude describe my API docs`
-- `Build an AI visibility query pool for my SDK`
+- `Build a developer-tool answer monitoring query pool for my SDK`
 - `Find negative or outdated LLM claims about my project`
 
 ## 30-Second Result
@@ -70,8 +70,9 @@ Copy one of these prompts to begin:
 
 **Companion demo and sample outputs**
 
-- Quick demo: [repo quick demo](https://github.com/veeicwgy/ai-visibility-toolkit#30-second-path)
-- Sample outputs: [leaderboard snapshot](https://github.com/veeicwgy/ai-visibility-toolkit/blob/main/assets/leaderboard-sample.png) and [repair trend snapshot](https://github.com/veeicwgy/ai-visibility-toolkit/blob/main/assets/repair-trend-sample.png)
+- Zero-install demo: [sample-run viewer](https://veeicwgy.github.io/devtool-answer-monitor/)
+- Public benchmarks: [MinerU story](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/benchmark/mineru-public-benchmark.md) and [Sciverse API story](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/benchmark/sciverse-api-public-benchmark.md)
+- Sample outputs: [leaderboard snapshot](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/assets/leaderboard-sample.png) and [repair trend snapshot](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/assets/repair-trend-sample.png)
 
 ## Trigger
 
@@ -92,7 +93,7 @@ When the user is new to the repository, route them in this order.
 | Situation | Next step |
 |---|---|
 | Needs environment check first | open `docs/getting-started.md` and review the environment check section |
-| Wants zero-cost first run | open `docs/for-beginners.md` and choose quickstart replay |
+| Wants environment-free first run | open `docs/index.html` or `docs/for-beginners.md` |
 | Wants a short explanation first | open `docs/for-beginners.md` |
 | Wants deeper onboarding | open `docs/getting-started.md` |
 | Wants the English repository overview | open `README.md` |
@@ -167,7 +168,7 @@ Always preserve the following outputs.
 
 ## Positioning
 
-AI Visibility Toolkit is the skill layer for the `ai-visibility-toolkit` repo.
+DevTool Answer Monitor is the skill layer for the `devtool-answer-monitor` repo.
 
 - Use the **repo** when you want runnable demos, scripts, and report artifacts.
 - Use the **skill** when you want an agent-guided workflow for monitoring, repair, and regression planning.

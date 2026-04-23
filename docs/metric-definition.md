@@ -1,6 +1,6 @@
 # Metric Definition
 
-本页解释 **AI Visibility Toolkit** 默认使用的四个核心指标，以及它们应该怎样被一起阅读。
+本页解释 **DevTool Answer Monitor** 默认使用的四个核心指标，以及它们应该怎样被一起阅读。
 
 ## Four Metrics
 

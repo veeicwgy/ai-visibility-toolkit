@@ -28,13 +28,18 @@ jobs:
       - name: Run quickstart smoke test
         run: bash ./quickstart.sh
 
+      - name: Build static demo data
+        run: python scripts/build_demo_data.py
+
       - name: Upload generated artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: geo-monitor-toolkit-artifacts
+          name: devtool-answer-monitor-artifacts
           path: |
             data/leaderboards/
             data/runs/quickstart-run/
             data/runs/sample-run/weekly_report.md
             assets/leaderboard-sample.png
             assets/repair-trend-sample.png
+            assets/mineru-before-after.svg
+            docs/data/demo-metrics.json

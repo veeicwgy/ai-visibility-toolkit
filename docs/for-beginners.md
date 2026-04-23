@@ -1,4 +1,4 @@
-# AI Visibility Toolkit 新手上手（5 分钟版）
+# DevTool Answer Monitor 新手上手（5 分钟版）
 
 > 目标：你不需要先理解全部概念，也可以先跑出第一份可读结果。
 
@@ -31,8 +31,8 @@ make doctor
 ## 1. 安装
 
 ```bash
-git clone https://github.com/veeicwgy/ai-visibility-toolkit.git
-cd ai-visibility-toolkit
+git clone https://github.com/veeicwgy/devtool-answer-monitor.git
+cd devtool-answer-monitor
 bash install.sh
 ```
 

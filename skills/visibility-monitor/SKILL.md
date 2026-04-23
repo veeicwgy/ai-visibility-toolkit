@@ -6,7 +6,7 @@ allowed-tools: Read, Write, Edit, Bash
 metadata:
   openclaw:
     author: "veeicwgy"
-    homepage: "https://github.com/veeicwgy/ai-visibility-toolkit"
+    homepage: "https://github.com/veeicwgy/devtool-answer-monitor"
     requires:
       env:
         - OPENAI_API_KEY
@@ -50,7 +50,7 @@ Use this skill when the user already has, or is ready to create, a Query Pool an
 ### Zero-key paths first
 
 - `bash quickstart.sh` replays sample data and does not require provider keys.
-- `python -m ai_visibility run --manual-responses ...` scores copied answers without live API calls.
+- `python -m devtool_answer_monitor run --manual-responses ...` scores copied answers without live API calls.
 
 ### Choose the right runner
 
@@ -73,7 +73,7 @@ Before running the command above, verify that `OPENAI_API_KEY` is configured in 
 Then annotate scores and generate the report:
 
 ```bash
-python -m ai_visibility report \
+python -m devtool_answer_monitor report \
     --input data/runs/my-run/raw_responses.jsonl \
     --output-dir data/runs/my-run
 ```

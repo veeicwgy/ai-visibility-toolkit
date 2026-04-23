@@ -1,6 +1,6 @@
 # Activation Metrics
 
-**AI Visibility Toolkit** 当前的 4 个核心指标适合回答“模型是否想到你、理解你、推荐你”。如果业务目标进一步指向 **下载量、安装量、API 调用量、agent 调用量**，建议在现有 4 指标之外，再增加一层 **activation-oriented metrics**。
+**DevTool Answer Monitor** 当前的 4 个核心指标适合回答“模型是否想到你、理解你、推荐你”。如果业务目标进一步指向 **下载量、安装量、API 调用量、agent 调用量**，建议在现有 4 指标之外，再增加一层 **activation-oriented metrics**。
 
 ## Why the core four are not enough
 
