@@ -8,7 +8,7 @@
 ![Release](https://img.shields.io/github/v/release/veeicwgy/devtool-answer-monitor)
 ![License](https://img.shields.io/github/license/veeicwgy/devtool-answer-monitor)
 
-[打开零安装 Demo](https://veeicwgy.github.io/devtool-answer-monitor/) · [MinerU 公开 benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API 公开 benchmark](benchmark/sciverse-api-public-benchmark.md)
+[打开零安装 Demo](https://cdn.jsdelivr.net/gh/veeicwgy/devtool-answer-monitor@main/docs/index.html) · [MinerU 公开 benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API 公开 benchmark](benchmark/sciverse-api-public-benchmark.md)
 
 <p align="center">
   <img src="assets/mineru-before-after.svg" alt="MinerU 修复前后指标变化" width="31%" />
@@ -31,7 +31,7 @@
 
 直接打开公开 sample-run viewer：
 
-- Demo: [veeicwgy.github.io/devtool-answer-monitor](https://veeicwgy.github.io/devtool-answer-monitor/)
+- Demo: [jsDelivr 静态 viewer](https://cdn.jsdelivr.net/gh/veeicwgy/devtool-answer-monitor@main/docs/index.html)
 - 可看到的内容：MinerU baseline / T+7 / T+14、Sciverse API funnel-stage 切片、top repair candidates
 - 不需要：API key、依赖安装、本地环境
 

@@ -9,7 +9,7 @@
 ![Python](https://img.shields.io/badge/python-3.11-blue)
 ![License](https://img.shields.io/github/license/veeicwgy/devtool-answer-monitor)
 
-[Open the zero-install demo](https://veeicwgy.github.io/devtool-answer-monitor/) · [MinerU benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API benchmark](benchmark/sciverse-api-public-benchmark.md)
+[Open the zero-install demo](https://cdn.jsdelivr.net/gh/veeicwgy/devtool-answer-monitor@main/docs/index.html) · [MinerU benchmark](benchmark/mineru-public-benchmark.md) · [Sciverse API benchmark](benchmark/sciverse-api-public-benchmark.md)
 
 <p align="center">
   <img src="assets/mineru-before-after.svg" alt="MinerU before and after repair loop metrics" width="31%" />
@@ -32,7 +32,7 @@ It connects **query design, answer monitoring, four-metric scoring, repair loops
 
 Open the public sample-run viewer:
 
-- Demo: [veeicwgy.github.io/devtool-answer-monitor](https://veeicwgy.github.io/devtool-answer-monitor/)
+- Demo: [jsDelivr static viewer](https://cdn.jsdelivr.net/gh/veeicwgy/devtool-answer-monitor@main/docs/index.html)
 - What it shows: MinerU baseline vs T+7 vs T+14, Sciverse API funnel-stage slices, top repair candidates, and stage-level gaps
 - What it does not need: API keys, package installs, or local setup
 

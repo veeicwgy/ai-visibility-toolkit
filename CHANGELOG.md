@@ -13,7 +13,7 @@
 - Renamed the public project brand to **DevTool Answer Monitor** for clearer GitHub positioning and less naming collision.
 - Reworked both README front pages to lead with result images, proof links, and public benchmark stories instead of long-form explanation.
 - Tightened repository metadata, documentation language, and skill homepage links around developer-tool answer monitoring.
-- Prepared the repository for a GitHub Pages zero-install demo and a more focused topic set.
+- Added a public zero-install demo entry and tightened the repository topic set.
 
 ## v0.2.4
 

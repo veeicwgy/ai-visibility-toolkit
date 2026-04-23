@@ -70,7 +70,7 @@ Copy one of these prompts to begin:
 
 **Companion demo and sample outputs**
 
-- Zero-install demo: [sample-run viewer](https://veeicwgy.github.io/devtool-answer-monitor/)
+- Zero-install demo: [sample-run viewer](https://cdn.jsdelivr.net/gh/veeicwgy/devtool-answer-monitor@main/docs/index.html)
 - Public benchmarks: [MinerU story](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/benchmark/mineru-public-benchmark.md) and [Sciverse API story](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/benchmark/sciverse-api-public-benchmark.md)
 - Sample outputs: [leaderboard snapshot](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/assets/leaderboard-sample.png) and [repair trend snapshot](https://github.com/veeicwgy/devtool-answer-monitor/blob/main/assets/repair-trend-sample.png)
 
